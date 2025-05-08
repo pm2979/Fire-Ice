@@ -15,9 +15,8 @@ public class Ability : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("충돌 중1");
-        Interact(other.gameObject);
         Debug.Log("충돌 중");
+        Interact(other.gameObject);
     }
 
     public AbilityType abilityType;
@@ -27,7 +26,7 @@ public class Ability : MonoBehaviour
     const string poisonTag = "Poison Obstacle"; //독 Tag
     const string statefulTag = "Stateful Obstacle"; //형태변화가 있는 오브젝트
 
-    
+    public GameObject statefulObstacle;
 
     public void Interact(GameObject target)
     {
