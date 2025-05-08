@@ -9,6 +9,8 @@ public enum COINTYPE
 {
     GOLD,
     SILVER,
-    BRONZE
+    BRONZE,
+    FIRESTAR,
+    ICESTAR
 }
 
