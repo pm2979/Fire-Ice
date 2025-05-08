@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MyGameNamespace;
 
 [CreateAssetMenu(fileName = "Score", menuName = "Coin")]
 public class ScoreConfig : ScriptableObject
