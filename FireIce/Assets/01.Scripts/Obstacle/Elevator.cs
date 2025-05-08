@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour, ISwitchActive
 {
+    public bool IsActive {  get; set; }
+
     public void Active()
     {
 
