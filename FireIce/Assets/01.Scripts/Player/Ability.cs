@@ -48,36 +48,37 @@ public class Ability : MonoBehaviour
                 {
                     GameOver();
                 }
-                else if(targetTag == statefulTag)
+                else if (targetTag == statefulTag)
                 {
-                    
+                    //녹임
+                    //IceObstacle.Melt();
                 }
-                    break;
+                break;
 
             case AbilityType.ICE: //플레이어가 ICE 능력을 가지고 있다면,
 
-                if(targetTag == iceTag) //장애물의 태그가 얼음일 경우
+                if (targetTag == iceTag) //장애물의 태그가 얼음일 경우
                 {
                     Debug.Log("물 캐릭터가 얼음 통과 중");
                 }
-                else if(targetTag == fireTag) //장애물의 태그가 불일 경우
+                else if (targetTag == fireTag) //장애물의 태그가 불일 경우
                 {
                     GameOver();
                 }
-                else if(targetTag == poisonTag)
+                else if (targetTag == poisonTag)
                 {
                     GameOver();
                 }
-                else if(targetTag == statefulTag)
+                else if (targetTag == statefulTag)
                 {
                     //얼림
+                    //IceObstacle.Freeze();
                 }
-
-                    break;
+                break;
         }
     }
-    
-    void GameOver()
+
+    void GameOver() //나연님 재시작이랑 연결?
     {
         Debug.Log("게임 오버!");
     }

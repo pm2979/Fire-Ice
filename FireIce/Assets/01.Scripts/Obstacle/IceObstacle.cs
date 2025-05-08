@@ -6,14 +6,15 @@ public class IceObstacle : MonoBehaviour
 {
     public void Melt()
     {
-        Debug.Log("불 캐릭터가 얼음을 녹입니다.");
+        Debug.Log("얼음 녹는 중.");
         //불 캐릭터와 충돌 시
-        //얼음 장애물 비전 끄기
-        //물 장애물 비전 켜기
+        //
     }
 
     public void Freeze()
     {
-
+        Debug.Log("얼리는 중.");
+        //물 캐릭터와 충돌 시
+        //
     }
 }
