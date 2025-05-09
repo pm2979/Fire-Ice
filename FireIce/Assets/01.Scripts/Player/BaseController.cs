@@ -3,13 +3,13 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
 
     public KeyCode leftKey = KeyCode.A;
     public KeyCode rightKey = KeyCode.D;
     public KeyCode jumpKey = KeyCode.W;
 
-    public float groundCheckDistance = 1.1f;
+    public float groundCheckDistance = 0.75f;
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
@@ -38,7 +38,7 @@ public class BaseController : MonoBehaviour
         // 회전
         if (moveX != 0)
         {
-            float rotationSpeed = IsGrounded() ? 1f : 2f; // 상황에 따른 회전 속도
+            float rotationSpeed = IsGrounded() ? 0.8f : 1f; // 상황에 따른 회전 속도
             currentZRotation += -rotationSpeed * moveX;
 
             // 현재 Z 회전 각도만 업데이트

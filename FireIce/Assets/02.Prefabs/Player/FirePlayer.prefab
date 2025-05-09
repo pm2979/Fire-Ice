@@ -172,11 +172,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 10
+  jumpForce: 5
   leftKey: 276
   rightKey: 275
   jumpKey: 273
-  groundCheckDistance: 1.1
+  groundCheckDistance: 0.6
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
