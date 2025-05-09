@@ -14,3 +14,8 @@ public enum COINTYPE
     ICESTAR
 }
 
+public enum ABILITYTYPE
+{
+    FIRE,
+    ICE
+}
