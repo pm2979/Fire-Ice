@@ -48,10 +48,10 @@ public class Ability : MonoBehaviour
                 }
                 else if (targetTag == statefulTag)
                 {
-                    var obstacle = target.GetComponent<StatefulObstacle>(); //타겟(장애물)에 붙어있는 StatefulOBstacle를 찾음
-                    if(obstacle != null)
+                    var csSwitch = target.GetComponent<Switch>(); //타겟(장애물)에 붙어있는 Switch를 찾음
+                    if(csSwitch != null)
                     {
-                        obstacle.Melt(); //녹임
+                        //녹임
                     }
                 }
                 break;
@@ -68,17 +68,17 @@ public class Ability : MonoBehaviour
                 }
                 else if (targetTag == statefulTag)
                 {
-                    var obstacle = target.GetComponent<StatefulObstacle>();
-                    if(obstacle != null)
+                    var csSwitch = target.GetComponent<Switch>();
+                    if(csSwitch != null)
                     {
-                        obstacle.Freeze(); //얼림
+                         //얼림
                     }
                 }
                 break;
         }
     }
 
-    void GameOver() //나연님 재시작이랑 연결?
+    void GameOver() //나연님 재시작 붙이기=============================================================
     {
         Debug.Log("게임 오버!");
     }
