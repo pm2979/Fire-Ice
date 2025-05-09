@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
 
-public class Door : MonoBehaviour, ISwitchActive
+public class Door : MonoBehaviour, IObstacleActive
 {
     [SerializeField] private Transform targetPos;
     [SerializeField] private GameObject doorObj;

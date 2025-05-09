@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface ISwitchActive
+public interface IObstacleActive
 {
     public bool IsActive { get; set; }
 
