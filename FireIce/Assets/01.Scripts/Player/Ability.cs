@@ -52,6 +52,14 @@ public class Ability : MonoBehaviour
                     if(csSwitch != null)
                     {
                         //녹임
+                        if (csSwitch.isFrozen)
+                        {
+                            csSwitch.isFrozen = false;
+                        }
+                        else
+                        {
+
+                        }
                     }
                 }
                 break;
@@ -71,7 +79,15 @@ public class Ability : MonoBehaviour
                     var csSwitch = target.GetComponent<Switch>();
                     if(csSwitch != null)
                     {
-                         //얼림
+                        //얼림
+                        if(!csSwitch.isFrozen)
+                        {
+                            csSwitch.isFrozen = true;
+                        }
+                        else
+                        {
+
+                        }
                     }
                 }
                 break;
