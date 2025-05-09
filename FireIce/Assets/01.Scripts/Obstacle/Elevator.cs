@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour, IObstacleActive
 {
-    public bool IsActive {  get; set; }
+    
+    [SerializeField] private bool isActive = false;
+    public bool IsActive { get => isActive; set => isActive = value; }
 
 }
