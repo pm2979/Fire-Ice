@@ -9,14 +9,16 @@ public class Lever : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && obstacleObj.GetComponent<ISwitchActive>().IsActive == false)
+        // 플레이어와 충동하면 연결된 장애물 활성화
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && obstacleObj.GetComponent<IObstacleActive>().IsActive == false)
         {
-            obstacleObj.GetComponent<ISwitchActive>().IsActive = true;
+            obstacleObj.GetComponent<IObstacleActive>().IsActive = true;
             animator.SetBool("IsOn", true);
         }
-        else if(collision.gameObject.layer == LayerMask.NameToLayer("Player") && obstacleObj.GetComponent<ISwitchActive>().IsActive == true)
+        // 플레이어와 충동하면 연결된 장애물 비활성화
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && obstacleObj.GetComponent<IObstacleActive>().IsActive == true)
         {
-            obstacleObj.GetComponent<ISwitchActive>().IsActive = false;
+            obstacleObj.GetComponent<IObstacleActive>().IsActive = false;
             animator.SetBool("IsOn", false);
         }
     }
