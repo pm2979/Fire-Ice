@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
         {
             return;
         }
-        ScoreManager.AddCoin(scoreConfig.coinScore, scoreConfig.coinType);
+        ScoreManager.AddCoin(scoreConfig.coinType);
         Destroy(gameObject);
     }
 }
