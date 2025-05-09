@@ -12,38 +12,40 @@ public class ScoreUI : MonoBehaviour
     public TMP_Text fireStarText;
     public TMP_Text iceStarText;
 
+    //단순히 게임 시작 후 시간이 흘러감을 표시
+    [Header("타이머")]
+    public TMP_Text timerText;
+
+    [Header("최종 등급")]
+    public TMP_Text gradeText;
+
     int fireTotal, iceTotal;
-    int fireCollected, iceCollected;
-    private void Awake()
+
+    //처음에 목표 개수만 설정
+    public void InitializeTotals(int fireTotal, int iceTotal)
     {
-        // 씬에 떠있는 Coin 컴포넌트를 전부 찾기
-        var allCoins = FindObjectsOfType<Coin>();
-
-        // ScoreConfig.coinType 에 따라 목표치 계산
-        fireTotal = allCoins.Count(c => c.scoreConfig.coinType == COINTYPE.FIRESTAR);
-        iceTotal = allCoins.Count(c => c.scoreConfig.coinType == COINTYPE.ICESTAR);
-
-        // UI에 초기값 표시
-        UpdateUI();
+        this.fireTotal = fireTotal;
+        this.iceTotal = iceTotal;
+        fireStarText.text = $"0 / {fireTotal}";
+        iceStarText.text = $"0 / {iceTotal}";
     }
 
-    public void HandleCoinTypeCollected(COINTYPE type)
-    {
-        // 획득 개수만 늘리고 UI 갱신
-        switch (type)
-        {
-            case COINTYPE.FIRESTAR:
-                fireCollected++;
-                break;
-            case COINTYPE.ICESTAR:
-                iceCollected++;
-                break;
-        }
-        UpdateUI();
-    }
-    private void UpdateUI()
+    //코인 획득 개수 업데이트
+    public void UpdateCoinUI(int fireCollected, int iceCollected)
     {
         fireStarText.text = $"{fireCollected} / {fireTotal}";
         iceStarText.text = $"{iceCollected} / {iceTotal}";
+    }
+
+    //경과 시간 표시
+    public void UpdateTimer(float elapsedTime)
+    {
+        timerText.text = $"{elapsedTime:F1}";
+    }
+
+    //최종 등급 표시
+    public void DisplayGrade(GRADE grade)
+    {
+        gradeText.text = grade.ToString();
     }
 }
