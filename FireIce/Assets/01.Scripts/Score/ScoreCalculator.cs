@@ -10,23 +10,11 @@ public class ScoreCalculator : MonoBehaviour
     //나중에 시간 점수도 받을 예정 
     //최종 점수도 계산
     
-    //이벤트버스 구독 방식 사용해봄
-    public static event Action<float> OnAddCoin;
-    [SerializeField] private float coinTotalScore = 0f;
+    //코인 타입 전달
+    float coinTotalScore = 0f;
+    public float CoinTotalScore => coinTotalScore;
 
-    private void OnEnable()
-    {
-        OnAddCoin += CoinCollected;
-    }
-    private void OnDisable()
-    {
-        OnAddCoin -= CoinCollected;
-    }
-    public static void AddCoin(float coinScore)
-    {
-        OnAddCoin?.Invoke(coinScore);
-    }
-    private void CoinCollected(float coinScore)
+    public void TotalScore(float coinScore)
     {
         coinTotalScore += coinScore;
         Debug.Log($"누적 코인점수 : {coinTotalScore}");
