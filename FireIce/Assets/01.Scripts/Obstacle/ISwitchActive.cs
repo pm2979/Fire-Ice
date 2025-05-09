@@ -2,6 +2,6 @@ using UnityEngine;
 
 public interface ISwitchActive
 {
-    public void Active();
-    public void Deactive();
+    public bool IsActive { get; set; }
+
 }
