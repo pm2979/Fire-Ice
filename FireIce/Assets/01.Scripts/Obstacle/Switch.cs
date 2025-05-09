@@ -11,8 +11,10 @@ public class Switch : MonoBehaviour
     public bool isFrozen { get; set; } //얼음이 붙어있는 지 확인
     private bool isState; //상호작용이 가능한 상태인지 확인
    
-    private void OnCollisionEnter2D(Collision2D collision) //얼음이 없으면 순차 실행
+    private void OnCollisionStay2D(Collision2D collision) //얼음이 없으면 순차 실행
     {
+        //if (collision.gameObject.GetComponent<Ability>().abilityType == ABILITYTYPE.FIRE)
+        
         if (isFrozen) return; //얼음이 있으면 실행 x
 
         isState = true;
@@ -22,7 +24,7 @@ public class Switch : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (isFrozen == true) return;
+        if (isFrozen) return;
 
         isState = false;
 
@@ -35,8 +37,9 @@ public class Switch : MonoBehaviour
         {
             bool isActive = isState;
 
-            ObstacleObj.GetComponent<IObstacleActive>().IsActive = isActive;
+            //ObstacleObj.GetComponent<IObstacleActive>().IsActive = isActive;
             animator.SetBool("IsOn", isActive);
+            Debug.Log("반응 중");
         }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class Ability : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("충돌 중");
         Interact(other.gameObject);
@@ -48,6 +48,7 @@ public class Ability : MonoBehaviour
                         //녹임
                         if (csSwitch.isFrozen)
                         {
+                            //얼음 끄기
                             csSwitch.isFrozen = false;
                         }
                         else
@@ -76,7 +77,9 @@ public class Ability : MonoBehaviour
                         //얼림
                         if(!csSwitch.isFrozen)
                         {
+                            //얼음 켜기
                             csSwitch.isFrozen = true;
+                            Debug.Log("얼음 충돌");
                         }
                         else
                         {
