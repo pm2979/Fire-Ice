@@ -3,42 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 
-public class Door : MonoBehaviour, ISwitchActive
+public class Door : MonoBehaviour, IObstacleActive
 {
     [SerializeField] private Transform targetPos;
     [SerializeField] private GameObject doorObj;
-    [SerializeField] private float time = 5;
+    [SerializeField] private float speed = 5;
 
-    private Coroutine doorMoveCoroutine;
-    public void Active()
+    private bool isActive = false;
+    public bool IsActive { get => isActive; set => isActive = value; }
+
+    
+
+    private void Update()
     {
-        if(doorMoveCoroutine != null)
-            StopCoroutine(doorMoveCoroutine);
 
-        doorMoveCoroutine = StartCoroutine(DoorActive_Cor(targetPos.position));
-        Debug.Log("Open_Door");
-    }
-
-    public void Deactive()
-    {
-        if (doorMoveCoroutine != null)
-            StopCoroutine(doorMoveCoroutine);
-
-        doorMoveCoroutine = StartCoroutine(DoorActive_Cor(transform.position));
-        Debug.Log("Close_Door");
-    }
-
-    private IEnumerator DoorActive_Cor(Vector2 pos)
-    {
-        float time = 0;
-        
-        while(time < this.time)
+        if(IsActive == true)
         {
-            doorObj.transform.position = Vector2.Lerp(doorObj.transform.position, pos, time / this.time);
-            time += Time.deltaTime;
-            yield return null;
+            doorObj.transform.position = Vector3.MoveTowards(doorObj.transform.position, targetPos.position, Time.deltaTime * speed);
+        }
+        else
+        {
+            doorObj.transform.position = Vector3.MoveTowards(doorObj.transform.position, transform.position, Time.deltaTime * speed);
         }
     }
 

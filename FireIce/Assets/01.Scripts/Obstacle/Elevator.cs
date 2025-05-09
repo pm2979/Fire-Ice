@@ -3,15 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elevator : MonoBehaviour, ISwitchActive
+public class Elevator : MonoBehaviour, IObstacleActive
 {
-    public void Active()
-    {
+    public bool IsActive {  get; set; }
 
-    }
-
-    public void Deactive()
-    {
-
-    }
 }
