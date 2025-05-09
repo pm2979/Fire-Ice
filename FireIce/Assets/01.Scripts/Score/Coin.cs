@@ -9,23 +9,8 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch (scoreConfig.coinType)
-        {
-            // FIRESTAR는 PlayerFire만
-            case COINTYPE.FIRESTAR:
-                if (collision.CompareTag("PlayerFire")) break;
-                return;
-
-            // ICESTAR는 PlayerIce만
-            case COINTYPE.ICESTAR:
-                if (collision.CompareTag("PlayerIce")) break;
-                return;
-
-            // 나머지(GOLD/SILVER/BRONZE)는 모두 허용
-            default:
-                break;
-        }
-
+        ScoreManager.CoinCollected(scoreConfig.coinScore, scoreConfig.coinType);
+        
         Destroy(gameObject);
     }
 }
