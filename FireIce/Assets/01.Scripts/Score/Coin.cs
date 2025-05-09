@@ -9,8 +9,18 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ScoreManager.AddCoin(scoreConfig.coinScore, scoreConfig.coinType);
-        
+        if (scoreConfig.coinType == COINTYPE.FIRESTAR
+            && !collision.CompareTag("PlayerFire"))
+        {
+            //파이어스타와 아이스플레이어를 만나면 없어지지 말기
+            return;
+        }
+        else if (scoreConfig.coinType == COINTYPE.ICESTAR
+            && !collision.CompareTag("PlayerIce"))
+        {
+            return;
+        }
+        ScoreManager.AddCoin(scoreConfig.coinType);
         Destroy(gameObject);
     }
 }

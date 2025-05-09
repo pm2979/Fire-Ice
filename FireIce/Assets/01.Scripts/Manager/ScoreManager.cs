@@ -12,18 +12,11 @@ public class ScoreManager : MonoBehaviour
     private bool hasRank = false;
 
 
-
-
-    //최종 등급을 결정
-
-
     //이벤트 구독 방식 사용
-    public static event Action<float> OnAddCoin;
     public static event Action<COINTYPE> OnCoinType;
 
     [Space(5)]
     [Header("스크립트 참조")]
-    [SerializeField] ScoreCalculator scoreCalculator;
     [SerializeField] ScoreUI scoreUI;
     [SerializeField] TimeTracker timeTracker;
 
@@ -44,14 +37,11 @@ public class ScoreManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // ScoreCalculator 과 ScoreManager 내부 메서드 구독
-        OnAddCoin += scoreCalculator.TotalScore;
         OnCoinType += CoinTypeCollected;
     }
 
     private void OnDisable()
     {
-        OnAddCoin -= scoreCalculator.TotalScore;
         OnCoinType -= CoinTypeCollected;
     }
     void Update()
@@ -67,9 +57,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
     // Coin.cs 에서 호출
-    public static void AddCoin(float amount, COINTYPE type)
+    public static void AddCoin(COINTYPE type)
     {
-        OnAddCoin?.Invoke(amount);
         OnCoinType?.Invoke(type);
     }
 
@@ -91,7 +80,7 @@ public class ScoreManager : MonoBehaviour
     //C랭크 : 시간 초과 클리어 + 코인 미달
     public void Rank()
     {
-
+        //제한 시간을 넘기지 않으면 false로 넘어옴. !가 붙었으므로 true임
         bool withinTime = !timeTracker.isTimeExceeded;
         //모든 파이어스타 먹으면 true
         bool allFire = fireCollected == fireTotal;
