@@ -393,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPos: {fileID: 1123637435920311927}
   doorObj: {fileID: 4236703305814719382}
-  time: 5
+  speed: 5
 --- !u!1 &1752014030119657107
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &9199482792515868934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -974,7 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPos: {fileID: 9068148370016628576}
   doorObj: {fileID: 6645046971369723395}
-  time: 5
+  speed: 5
 --- !u!1 &4023831976332945977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &407893368039521814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1777,6 +1779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7285012545698577209}
+  - component: {fileID: 5795659616970178317}
   m_Layer: 0
   m_Name: map_2
   m_TagString: Untagged
@@ -1819,6 +1822,19 @@ Transform:
   - {fileID: 6245673215024489979}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5795659616970178317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963648142772220802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01f481bd335dac428aca953fc13a4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeConfig: {fileID: 11400000, guid: 35640c080d606684d86bd020d862c80f, type: 2}
 --- !u!1 &5968966871236879662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &3565313907069753294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2875,4 +2892,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPos: {fileID: 2730181860616718516}
   doorObj: {fileID: 7983646666109019059}
-  time: 5
+  speed: 5

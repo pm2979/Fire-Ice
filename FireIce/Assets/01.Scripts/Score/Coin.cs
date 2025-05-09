@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ScoreManager.CoinCollected(scoreConfig.coinScore, scoreConfig.coinType);
+        ScoreManager.AddCoin(scoreConfig.coinScore, scoreConfig.coinType);
         
         Destroy(gameObject);
     }
