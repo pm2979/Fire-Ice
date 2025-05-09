@@ -7,10 +7,11 @@ public class ScoreCalculator : MonoBehaviour
 {
     //플레이어가 코인과 충돌하면
     //충돌한 코인의 score를 받아오기
-    //나중에 시간 점수도 받을 예정 
-    //최종 점수도 계산
+
+    //현재는 누적 코인점수가 필요없음
+    //**추후 없어질 가능성 있음**
     
-    //코인 타입 전달
+    //누적 코인점수 전달
     float coinTotalScore = 0f;
     public float CoinTotalScore => coinTotalScore;
 
