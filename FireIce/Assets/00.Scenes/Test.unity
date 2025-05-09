@@ -463,6 +463,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 274508742}
     m_Modifications:
+    - target: {fileID: 449106471390665429, guid: 4ab634dee1059e44faa63832d8dcd098, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4700438820422597810, guid: 4ab634dee1059e44faa63832d8dcd098, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -559,9 +563,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 274508742}
     m_Modifications:
+    - target: {fileID: 1064179400432096197, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2334950508508342722, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
       propertyPath: m_Name
       value: FirePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334950508508342722, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334950508508342722, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: m_TagString
+      value: PlayerFire
       objectReference: {fileID: 0}
     - target: {fileID: 5202980244565693092, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
       propertyPath: jumpForce
@@ -581,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573373462445068061, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: -1.4200001
       objectReference: {fileID: 0}
     - target: {fileID: 6573373462445068061, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
       propertyPath: m_LocalPosition.z
@@ -613,6 +629,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573373462445068061, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8146591293672060431, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
