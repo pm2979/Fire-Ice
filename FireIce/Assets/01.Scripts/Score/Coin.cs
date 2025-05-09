@@ -25,7 +25,7 @@ public class Coin : MonoBehaviour
             default:
                 break;
         }
-
+        ScoreCalculator.AddCoin(scoreConfig.coinScore);
         Destroy(gameObject);
     }
 }
