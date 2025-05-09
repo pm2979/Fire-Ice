@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6027162904918627816}
   - component: {fileID: 6172266667891782855}
+  - component: {fileID: 6799766599206963579}
   m_Layer: 0
-  m_Name: FireSpawner
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6799766599206963579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449106471390665429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2434b6610d2984188c66911a10c275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+  leftKey: 97
+  rightKey: 100
+  jumpKey: 119
+  groundCheck: {fileID: 3065886493487278238}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &484133319991093893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,8 +2847,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5467213592541539899}
   - component: {fileID: 1820284727398533805}
+  - component: {fileID: 4349097751261899424}
   m_Layer: 0
-  m_Name: IceSpawner
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2899,6 +2922,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4349097751261899424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185651195241725818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2434b6610d2984188c66911a10c275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+  leftKey: 276
+  rightKey: 275
+  jumpKey: 273
+  groundCheck: {fileID: 3065886493487278238}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7442770089723993485
 GameObject:
   m_ObjectHideFlags: 0

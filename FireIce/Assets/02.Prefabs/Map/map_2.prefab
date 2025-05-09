@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6027162904918627816}
   - component: {fileID: 6172266667891782855}
   m_Layer: 0
-  m_Name: FireSpawner
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2297,7 +2297,7 @@ GameObject:
   - component: {fileID: 5467213592541539899}
   - component: {fileID: 1820284727398533805}
   m_Layer: 0
-  m_Name: IceSpawner
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
