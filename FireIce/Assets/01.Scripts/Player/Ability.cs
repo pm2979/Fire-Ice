@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -13,7 +14,7 @@ public enum AbilityType //나중에 나연님 Enum으로 빼기!==========================
 
 public class Ability : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("충돌 중");
         Interact(other.gameObject);
@@ -26,7 +27,8 @@ public class Ability : MonoBehaviour
     const string poisonTag = "Poison Obstacle"; //독 Tag
     const string statefulTag = "Stateful Obstacle"; //형태변화가 있는 오브젝트
 
-    public GameObject statefulObstacle;
+    //public GameObject statefulObstacle;
+    //Dictionary<string, Action> tagActions;
 
     public void Interact(GameObject target)
     {
@@ -40,18 +42,17 @@ public class Ability : MonoBehaviour
                 {
                     Debug.Log("불 캐릭터가 불 통과 중");
                 }
-                else if (targetTag == iceTag) //장애물의 태그가 얼음일 경우
-                {
-                    GameOver();
-                }
-                else if (targetTag == poisonTag) //장애물의 태그가 독일 경우
+                else if (targetTag == iceTag || targetTag == poisonTag) //장애물의 태그가 얼음일 경우
                 {
                     GameOver();
                 }
                 else if (targetTag == statefulTag)
                 {
-                    //녹임
-                    //IceObstacle.Melt();
+                    var obstacle = target.GetComponent<StatefulObstacle>(); //타겟(장애물)에 붙어있는 StatefulOBstacle를 찾음
+                    if(obstacle != null)
+                    {
+                        obstacle.Melt(); //녹임
+                    }
                 }
                 break;
 
@@ -61,18 +62,17 @@ public class Ability : MonoBehaviour
                 {
                     Debug.Log("물 캐릭터가 얼음 통과 중");
                 }
-                else if (targetTag == fireTag) //장애물의 태그가 불일 경우
-                {
-                    GameOver();
-                }
-                else if (targetTag == poisonTag)
+                else if (targetTag == fireTag || targetTag == poisonTag) //장애물의 태그가 불일 경우
                 {
                     GameOver();
                 }
                 else if (targetTag == statefulTag)
                 {
-                    //얼림
-                    //IceObstacle.Freeze();
+                    var obstacle = target.GetComponent<StatefulObstacle>();
+                    if(obstacle != null)
+                    {
+                        obstacle.Freeze(); //얼림
+                    }
                 }
                 break;
         }
@@ -82,5 +82,4 @@ public class Ability : MonoBehaviour
     {
         Debug.Log("게임 오버!");
     }
-
 }
