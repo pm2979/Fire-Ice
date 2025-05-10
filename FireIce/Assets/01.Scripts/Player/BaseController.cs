@@ -15,42 +15,60 @@ public class BaseController : MonoBehaviour
     private Rigidbody2D rb;
 
     private float currentZRotation = 0f;
+    private float moveInput = 0f;
 
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        float moveX = 0f;
-
-        if (Input.GetKey(leftKey)) moveX = -1f;
-        if (Input.GetKey(rightKey)) moveX = 1f;
-
-        rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-
-        if (Input.GetKeyDown(jumpKey) && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
-        // 회전
-        if (moveX != 0)
-        {
-            float rotationSpeed = IsGrounded() ? 0.8f : 1f; // 상황에 따른 회전 속도
-            currentZRotation += -rotationSpeed * moveX;
-
-            // 현재 Z 회전 각도만 업데이트
-            transform.rotation = Quaternion.AngleAxis(currentZRotation, Vector3.forward);
-        }
-        else if (IsGrounded())
-        {
-            
-        }
+        Input();
+        Rotation();
     }
 
-    bool IsGrounded()
+    private void FixedUpdate()
+    {
+        Movement();
+    }
+
+    private void Input() // 입력 메서드
+    {
+        // 좌/우 입력
+        if (UnityEngine.Input.GetKey(leftKey))
+            moveInput = -1f;
+        else if (UnityEngine.Input.GetKey(rightKey))
+            moveInput = 1f;
+        else
+            moveInput = 0f;
+
+        // 점프 입력
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && IsGrounded())
+            Jump();
+    }
+
+    private void Movement() // 플레이어 움직임
+    {
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+    }
+
+    private void Jump() // 플레이어 점프
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+
+    private void Rotation() // 플레이어 회전
+    {
+        // 좌우 이동 중일 때만 회전
+        if (moveInput == 0f) return;
+
+        float rotationSpeed = 200f;
+        currentZRotation += -rotationSpeed * moveInput * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0f, 0f, currentZRotation);
+    }
+
+    bool IsGrounded() // 땅인지 확인
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
