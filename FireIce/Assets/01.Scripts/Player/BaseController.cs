@@ -1,9 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 5f;
+    public float jumpForce = 7f;
 
     public KeyCode leftKey = KeyCode.A;
     public KeyCode rightKey = KeyCode.D;
@@ -15,45 +16,73 @@ public class BaseController : MonoBehaviour
     private Rigidbody2D rb;
 
     private float currentZRotation = 0f;
+    private float moveInput = 0f;
+    private bool isJump; // 점프 가능 여부
 
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        float moveX = 0f;
-
-        if (Input.GetKey(leftKey)) moveX = -1f;
-        if (Input.GetKey(rightKey)) moveX = 1f;
-
-        rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-
-        if (Input.GetKeyDown(jumpKey) && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
-        // 회전
-        if (moveX != 0)
-        {
-            float rotationSpeed = IsGrounded() ? 0.8f : 1f; // 상황에 따른 회전 속도
-            currentZRotation += -rotationSpeed * moveX;
-
-            // 현재 Z 회전 각도만 업데이트
-            transform.rotation = Quaternion.AngleAxis(currentZRotation, Vector3.forward);
-        }
-        else if (IsGrounded())
-        {
-            
-        }
+        Input();
+        Rotation();
     }
 
-    bool IsGrounded()
+    private void FixedUpdate()
+    {
+        Movement();
+    }
+
+    private void Input() // 입력 메서드
+    {
+        IsGrounded(); // 플레이어가 땅 위인지 확인
+
+        // 좌/우 입력
+        if (UnityEngine.Input.GetKey(leftKey))
+        {
+            if(isJump == true) moveInput = -1f;
+            if(isJump == false) moveInput = -0.5f;
+
+        }
+        else if (UnityEngine.Input.GetKey(rightKey))
+        {
+            if (isJump == true) moveInput = 1f;
+            if (isJump == false) moveInput = 0.5f;
+        }
+        else moveInput = 0f;
+
+        // 점프 입력
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && isJump == true)
+            Jump();
+    }
+
+    private void Movement() // 플레이어 움직임
+    {
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+    }
+
+    private void Jump() // 플레이어 점프
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        isJump = true;
+    }
+
+    private void Rotation() // 플레이어 회전
+    {
+        // 좌우 이동 중일 때만 회전
+        if (moveInput == 0f) return;
+
+        float rotationSpeed = 200f;
+        currentZRotation += -rotationSpeed * moveInput * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0f, 0f, currentZRotation);
+    }
+
+    private void IsGrounded() // 땅인지 확인
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-        return hit.collider != null;
+        isJump = hit.collider != null ? true : false;
     }
 
     

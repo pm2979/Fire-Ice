@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7197812736074947471}
   - component: {fileID: 3507920378051152625}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OnOffColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3254902, g: 0.9921569, b: 1, a: 1}
+  m_Color: {r: 0.29411766, g: 0.5372549, b: 0.86274517, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7814180698530197452}
   - component: {fileID: 7348027748194350364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeverHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1142648814950447993}
   - component: {fileID: 2222924404033247510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 2002925701681857505}
   - component: {fileID: 1681580696836201789}
   - component: {fileID: 4976290937279165750}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 4254743284573271979}
   - component: {fileID: 1550618980652542979}
   - component: {fileID: 3979445016434812875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

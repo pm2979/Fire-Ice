@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9811321, g: 0.2082592, b: 0.2082592, a: 1}
+  m_Color: {r: 1, g: 0.3254902, b: 0.3254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -171,12 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2434b6610d2984188c66911a10c275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 4
+  jumpForce: 7
   leftKey: 276
   rightKey: 275
   jumpKey: 273
-  groundCheckDistance: 0.6
+  groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 200

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5755180187919722186}
   - component: {fileID: 5068674361497830597}
   - component: {fileID: 2349588258380124584}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OpenWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4650030056989904987}
-  - {fileID: 5072761415898245033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5068674361497830597
@@ -81,7 +80,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: -1}
+  m_Offset: {x: -0.5, y: -2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -92,7 +91,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 2}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &4398224347417672015
 GameObject:
@@ -104,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5072761415898245033}
   - component: {fileID: 6924416646330086029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,12 +118,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4398224347417672015}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -1, z: 0}
-  m_LocalScale: {x: 0.2, y: 1.7, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5755180187919722186}
+  m_Father: {fileID: 4650030056989904987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6924416646330086029
 SpriteRenderer:
@@ -188,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4650030056989904987}
   - component: {fileID: 5185882374798131766}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,10 +203,11 @@ Transform:
   m_GameObject: {fileID: 5283973131398549292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -1, z: 0}
-  m_LocalScale: {x: 0.5, y: 2, z: 1}
+  m_LocalPosition: {x: -0.5, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5072761415898245033}
   m_Father: {fileID: 5755180187919722186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5185882374798131766
