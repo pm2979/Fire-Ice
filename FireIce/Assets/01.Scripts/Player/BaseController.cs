@@ -70,7 +70,7 @@ public class BaseController : MonoBehaviour
             if (hit.collider != null)
             {
                 GameObject hitObj = hit.collider.gameObject;
-                Debug.Log("충돌체 : " + hit.collider.name);
+                //Debug.Log("충돌체 : " + hit.collider.name);
 
                 Ability ability = GetComponent<Ability>();
                 if(ability != null)
