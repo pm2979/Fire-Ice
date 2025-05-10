@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7554056016273629500}
   - component: {fileID: 8373042653664984296}
   - component: {fileID: 3148549992454234832}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4426704283782678675}
   - component: {fileID: 5821903945033852905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 5108982580798557117}
   - component: {fileID: 2089737223279976924}
   - component: {fileID: 3679769968566643574}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4560439157947640004}
   - component: {fileID: 9108870486106571542}
   - component: {fileID: 5597930445239340909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3254902, g: 0.9921569, b: 1, a: 1}
+  m_Color: {r: 0.29411766, g: 0.5372549, b: 0.8627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
