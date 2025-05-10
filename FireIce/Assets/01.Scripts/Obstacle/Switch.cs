@@ -8,39 +8,40 @@ public class Switch : MonoBehaviour
     //[SerializeField] private GameObject IceState; //자식 오브젝트 Ice
 
     //bool값을 이용해 얼음이 있는 지 없는 지 판단
-    public bool isFrozen { get; set; } //얼음이 붙어있는 지 확인
+    public bool isFrozen; //얼음이 붙어있는 지 확인
     private bool isState; //상호작용이 가능한 상태인지 확인
-   
+    private bool isCollision;
+
+    private void Update()
+    {
+        Debug.Log("isState값 : " + isState);
+    }
     private void OnCollisionStay2D(Collision2D collision) //얼음이 없으면 순차 실행
     {
-        //if (collision.gameObject.GetComponent<Ability>().abilityType == ABILITYTYPE.FIRE)
-        
-        if (isFrozen) return; //얼음이 있으면 실행 x
-
-        isState = true;
-
-        HandleSwitchInput();
+        isCollision = true;
+        SetState(true);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+       isCollision= false;
         if (isFrozen) return;
-
-        isState = false;
-
-        HandleSwitchInput();
+        SetState(false);
     }
 
-    private void HandleSwitchInput()
+    public void SetFrozen(bool isFrozen)
     {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            bool isActive = isState;
+        bool originValue = this.isFrozen;
+        if (!isCollision) return;
 
-            //ObstacleObj.GetComponent<IObstacleActive>().IsActive = isActive;
-            animator.SetBool("IsOn", isActive);
-            Debug.Log("반응 중");
-        }
+        this.isFrozen = isFrozen;
+        Debug.Log(isFrozen == originValue ? "같은 타입" : this.isFrozen == true ? "얼림" : "녹임");
+    }
+
+    private void SetState(bool isState)
+    {
+        this.isState = isState;
+        Debug.Log(this.isState == true ? "애니메이션 작동" : "애니메이션 작동XX");
     }
 }
 

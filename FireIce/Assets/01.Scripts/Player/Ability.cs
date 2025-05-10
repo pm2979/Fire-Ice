@@ -42,20 +42,8 @@ public class Ability : MonoBehaviour
                 }
                 else if (targetTag == statefulTag)
                 {
-                    var csSwitch = target.GetComponent<Switch>(); //타겟(장애물)에 붙어있는 Switch를 찾음
-                    if(csSwitch != null)
-                    {
-                        //녹임
-                        if (csSwitch.isFrozen)
-                        {
-                            //얼음 끄기
-                            csSwitch.isFrozen = false;
-                        }
-                        else
-                        {
-
-                        }
-                    }
+                    if(target.TryGetComponent<Switch>(out var data)) //타겟(장애물)에 붙어있는 Switch를 찾음
+                    data.SetFrozen(abilityType == ABILITYTYPE.FIRE);
                 }
                 break;
 
@@ -71,21 +59,8 @@ public class Ability : MonoBehaviour
                 }
                 else if (targetTag == statefulTag)
                 {
-                    var csSwitch = target.GetComponent<Switch>();
-                    if(csSwitch != null)
-                    {
-                        //얼림
-                        if(!csSwitch.isFrozen)
-                        {
-                            //얼음 켜기
-                            csSwitch.isFrozen = true;
-                            Debug.Log("얼음 충돌");
-                        }
-                        else
-                        {
-
-                        }
-                    }
+                    if (target.TryGetComponent<Switch>(out var data))
+                        data.SetFrozen(abilityType == ABILITYTYPE.FIRE);
                 }
                 break;
         }
