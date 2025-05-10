@@ -1,9 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 5f;
+    public float jumpForce = 7f;
 
     public KeyCode leftKey = KeyCode.A;
     public KeyCode rightKey = KeyCode.D;
@@ -16,6 +17,7 @@ public class BaseController : MonoBehaviour
 
     private float currentZRotation = 0f;
     private float moveInput = 0f;
+    private bool isJump; // 점프 가능 여부
 
     private void Awake()
     {
@@ -35,16 +37,24 @@ public class BaseController : MonoBehaviour
 
     private void Input() // 입력 메서드
     {
+        IsGrounded(); // 플레이어가 땅 위인지 확인
+
         // 좌/우 입력
         if (UnityEngine.Input.GetKey(leftKey))
-            moveInput = -1f;
+        {
+            if(isJump == true) moveInput = -1f;
+            if(isJump == false) moveInput = -0.5f;
+
+        }
         else if (UnityEngine.Input.GetKey(rightKey))
-            moveInput = 1f;
-        else
-            moveInput = 0f;
+        {
+            if (isJump == true) moveInput = 1f;
+            if (isJump == false) moveInput = 0.5f;
+        }
+        else moveInput = 0f;
 
         // 점프 입력
-        if (UnityEngine.Input.GetKeyDown(jumpKey) && IsGrounded())
+        if (UnityEngine.Input.GetKeyDown(jumpKey) && isJump == true)
             Jump();
     }
 
@@ -56,6 +66,7 @@ public class BaseController : MonoBehaviour
     private void Jump() // 플레이어 점프
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        isJump = true;
     }
 
     private void Rotation() // 플레이어 회전
@@ -68,10 +79,10 @@ public class BaseController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, currentZRotation);
     }
 
-    bool IsGrounded() // 땅인지 확인
+    private void IsGrounded() // 땅인지 확인
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-        return hit.collider != null;
+        isJump = hit.collider != null ? true : false;
     }
 
     
