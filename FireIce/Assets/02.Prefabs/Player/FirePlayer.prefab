@@ -179,4 +179,4 @@ MonoBehaviour:
   groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
-    m_Bits: 200
+    m_Bits: 192
