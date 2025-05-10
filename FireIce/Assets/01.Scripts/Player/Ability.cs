@@ -8,11 +8,11 @@ using UnityEngine.UIElements;
 
 public class Ability : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D other)
+/*    private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("충돌 중");
         Interact(other.gameObject);
-    }
+    }*/
 
     public ABILITYTYPE abilityType;
 
@@ -27,7 +27,6 @@ public class Ability : MonoBehaviour
     public void Interact(GameObject target)
     {
         string targetTag = target.tag; //부딪힌 상대의 태그 확인
-
         switch (abilityType)
         {
             case ABILITYTYPE.FIRE: //플레이어가 FIRE 능력을 가지고 있다면,
@@ -42,8 +41,10 @@ public class Ability : MonoBehaviour
                 }
                 else if (targetTag == statefulTag)
                 {
-                    if(target.TryGetComponent<Switch>(out var data)) //타겟(장애물)에 붙어있는 Switch를 찾음
-                    data.SetFrozen(abilityType == ABILITYTYPE.FIRE);
+                    if (target.TryGetComponent<Switch>(out var data)) //타겟(장애물)에 붙어있는 Switch를 찾음
+                    {
+                        data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(false)
+                    }
                 }
                 break;
 
@@ -60,7 +61,9 @@ public class Ability : MonoBehaviour
                 else if (targetTag == statefulTag)
                 {
                     if (target.TryGetComponent<Switch>(out var data))
-                        data.SetFrozen(abilityType == ABILITYTYPE.FIRE);
+                    {
+                        data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(true)
+                    }
                 }
                 break;
         }

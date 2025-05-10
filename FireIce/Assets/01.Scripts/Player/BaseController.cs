@@ -10,6 +10,9 @@ public class BaseController : MonoBehaviour
     public KeyCode rightKey = KeyCode.D;
     public KeyCode jumpKey = KeyCode.W;
 
+    public KeyCode downKey = KeyCode.S;
+    [SerializeField] private LayerMask layer;
+
     public float groundCheckDistance = 0.75f;
     public LayerMask groundLayer;
 
@@ -56,6 +59,32 @@ public class BaseController : MonoBehaviour
         // 점프 입력
         if (UnityEngine.Input.GetKeyDown(jumpKey) && isJump == true)
             Jump();
+
+        // 아래 키
+        if (UnityEngine.Input.GetKeyDown(downKey))
+        {
+            Debug.DrawRay(transform.position, Vector2.down * 2f, Color.green, 0.5f); //체크
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, LayerMask.GetMask("Interaction"));
+            //Debug.Log("Trigger 감지 설정: " + Physics2D.queriesHitTriggers);
+
+            if (hit.collider != null)
+            {
+                GameObject hitObj = hit.collider.gameObject;
+                Debug.Log("충돌체 : " + hit.collider.name);
+
+                Ability ability = GetComponent<Ability>();
+                if(ability != null)
+                {
+                    gameObject.GetComponent<Ability>().Interact(hit.collider.gameObject);
+                    //ability.Interact(hit.collider.gameObject);
+                }
+                else
+                {
+                    Debug.LogWarning("Ability NU11");
+                }
+            }
+            else { Debug.LogWarning("Raycast NU11"); }
+        }
     }
 
     private void Movement() // 플레이어 움직임
