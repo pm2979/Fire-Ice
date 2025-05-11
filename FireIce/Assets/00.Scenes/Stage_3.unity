@@ -658,6 +658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
   animator: {fileID: 4753253068243986177}
+  <IsFrozen>k__BackingField: 0
+  <IceObj>k__BackingField: {fileID: 0}
 --- !u!4 &1324484590317601266
 Transform:
   m_ObjectHideFlags: 0
@@ -2150,6 +2152,10 @@ MonoBehaviour:
   leftKey: 0
   rightKey: 0
   jumpKey: 0
+  downKey: 115
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
   groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
@@ -3852,7 +3858,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.931037, g: 1, b: 0.8066038, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3900,6 +3906,10 @@ MonoBehaviour:
   leftKey: 0
   rightKey: 0
   jumpKey: 0
+  downKey: 115
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
   groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
@@ -4231,6 +4241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
   animator: {fileID: 2139521511766612370}
+  <IsFrozen>k__BackingField: 0
+  <IceObj>k__BackingField: {fileID: 0}
 --- !u!81 &8463171691728394379
 AudioListener:
   m_ObjectHideFlags: 0
