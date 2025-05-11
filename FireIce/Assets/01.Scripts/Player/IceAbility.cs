@@ -5,27 +5,25 @@ using static UnityEngine.GraphicsBuffer;
 
 public class IceAbility : MonoBehaviour, IAbility
 {
-    const string fireTag = "Fire Obstacle"; //불 Tag (용암풀)
-    const string iceTag = "Ice Obstacle"; //얼음 Tag (얼음풀)
-    const string poisonTag = "Poison Obstacle"; //독 Tag
-    const string statefulTag = "Stateful Obstacle"; //형태변화가 있는 오브젝트
-
     public void Interact(GameObject target)
     {
+        Debug.Log("얼음");
         string targetTag = target.tag; //부딪힌 상대의 태그 확인
 
-        if (targetTag == iceTag) //장애물의 태그가 얼음일 경우
+        if (targetTag == ObstacleTags.iceTag) //장애물의 태그가 얼음일 경우
         {
-            Debug.Log("물 캐릭터가 얼음 통과 중");
+            Debug.Log("얼음 캐릭터가 얼음 통과 중");
         }
-        else if (targetTag == fireTag || targetTag == poisonTag) //장애물의 태그가 불일 경우
+        else if (targetTag == ObstacleTags.fireTag || targetTag == ObstacleTags.poisonTag) //장애물의 태그가 불일 경우
         {
             GameOver();
         }
-        else if (targetTag == statefulTag)
+        else if (targetTag == ObstacleTags.statefulTag)
         {
             if (target.TryGetComponent<Switch>(out var data))
             {
+                Debug.Log("얼음과 스위치 충돌");
+                data.IsFrozenTrue();
                 //data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(true)
             }
         }
