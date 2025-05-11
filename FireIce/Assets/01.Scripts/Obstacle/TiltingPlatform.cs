@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TiltingPlatform : MonoBehaviour , IIceActive
+public class TiltingPlatform : MonoBehaviour ,IFrozen
 {
-    [field: SerializeField] public bool IsIce { get; set; } = false;
+    [field: SerializeField] public bool IsFrozen { get; set; } = false;
     [field: SerializeField] public GameObject IceObj { get; set; }
     private Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        IsIceActive(IsIce);
+        IsIceActive(IsFrozen);
     }
 
-    public void IsIceTrue()
+    public void IsFrozenTrue()
     {
-        IsIce = true;
-        IsIceActive(IsIce);
+        IsFrozen = true;
+        IsIceActive(IsFrozen);
     }
 
-    public void IsIceFalse()
+    public void IsFrozenFalse()
     {
-        IsIce = false;
-        IsIceActive(IsIce);
+        IsFrozen = false;
+        IsIceActive(IsFrozen);
     }
 
     public void IsIceActive(bool isIce)
