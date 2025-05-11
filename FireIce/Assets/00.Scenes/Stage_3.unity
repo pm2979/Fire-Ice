@@ -354,7 +354,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  abilityComponent: {fileID: 0}
 --- !u!61 &1029016627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -849,7 +848,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  abilityComponent: {fileID: 0}
 --- !u!50 &1941785654
 Rigidbody2D:
   serializedVersion: 4
@@ -1434,7 +1432,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj:
   - {fileID: 9067413350673648416}
-  - {fileID: 6685939897425377896}
   animator: {fileID: 4753253068243986177}
   <IsFrozen>k__BackingField: 0
   <IceObj>k__BackingField: {fileID: 0}
@@ -1780,6 +1777,7 @@ GameObject:
   - component: {fileID: 3098330128344699787}
   - component: {fileID: 1539613913819648110}
   - component: {fileID: 3098330128344699788}
+  - component: {fileID: 3098330128344699789}
   m_Layer: 0
   m_Name: PoisonTrap
   m_TagString: Untagged
@@ -2191,6 +2189,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapType: 2
+--- !u!61 &3098330128344699789
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250201190410147273}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!61 &3137263807038391776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2338,6 +2381,7 @@ GameObject:
   - component: {fileID: 1376493976434698204}
   - component: {fileID: 4933162406242647369}
   - component: {fileID: 4933162406242647370}
+  - component: {fileID: 4933162406242647371}
   m_Layer: 0
   m_Name: PoisonTrap
   m_TagString: Untagged
@@ -3136,6 +3180,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapType: 2
+--- !u!61 &4933162406242647371
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541017076791072745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!212 &4973490678871935130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4193,6 +4282,7 @@ GameObject:
   - component: {fileID: 7416414060106699993}
   - component: {fileID: 4973490678871935130}
   - component: {fileID: 7416414060106699994}
+  - component: {fileID: 7416414060106699995}
   m_Layer: 0
   m_Name: PoisonTrap
   m_TagString: Untagged
@@ -4226,6 +4316,7 @@ GameObject:
   - component: {fileID: 3619854838211754778}
   - component: {fileID: 2539251609099406761}
   - component: {fileID: 7399406295681817589}
+  - component: {fileID: 7399406295681817590}
   m_Layer: 0
   m_Name: IceTrap
   m_TagString: Untagged
@@ -4246,6 +4337,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapType: 1
+--- !u!61 &7399406295681817590
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399406295681817588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &7411059655287497892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4272,7 +4408,7 @@ Transform:
   m_GameObject: {fileID: 7194569976171259375}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 2.6, z: 0}
+  m_LocalPosition: {x: -3.5, y: 2.1, z: 0}
   m_LocalScale: {x: 3, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4291,6 +4427,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapType: 2
+--- !u!61 &7416414060106699995
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194569976171259375}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!212 &7419466629043503166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4670,7 +4851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleObj:
-  - {fileID: 9067413350673648416}
   - {fileID: 6685939897425377896}
   animator: {fileID: 2139521511766612370}
   <IsFrozen>k__BackingField: 0

@@ -30,6 +30,7 @@ public class Trap : MonoBehaviour
                 {
                     GameOver();
                 }
+
                 break;
         }
     }
