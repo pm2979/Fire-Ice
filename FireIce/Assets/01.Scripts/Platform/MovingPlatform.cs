@@ -13,14 +13,11 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive
     [SerializeField] private float waitTime = 1f; // 기다리는 시간
     [field: SerializeField] public bool IsActive { get; set; } = false;
 
-    private Rigidbody2D _rb;
-    private int _currentIndex = 0; // 현재 인덱스
-    private float _waitCounter = 0f;
+    private int currentIndex = 0; // 현재 인덱스
+    private float waitCounter = 0f;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-
         if (waypoints == null || waypoints.Count < 2)
             Debug.LogError($"{name}: waypoints에 최소 2개 이상의 Transform을 등록하세요.");
 
@@ -36,22 +33,22 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive
 
     private void Move()
     {
-        if (_waitCounter > 0f) // 도착시 기다리는 시간 계산
+        if (waitCounter > 0f) // 도착시 기다리는 시간 계산
         {
-            _waitCounter -= Time.deltaTime;
+            waitCounter -= Time.deltaTime;
             return;
         }
 
         // 목표 웨이 포인트 지정
-        Vector2 targetPos = waypoints[_currentIndex].position;
+        Vector2 targetPos = waypoints[currentIndex].position;
 
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         // 거의 도착하면 대기 후 다음 인덱스 계산
         if (Vector2.Distance(transform.position, targetPos) < 0.01f)
         {
-            _waitCounter = waitTime;
-            _currentIndex = (_currentIndex + 1) % waypoints.Count;
+            waitCounter = waitTime;
+            currentIndex = (currentIndex + 1) % waypoints.Count;
         }
     }
 

@@ -12,10 +12,7 @@ public class Door : MonoBehaviour, IObstacleActive
     [SerializeField] private GameObject doorObj; // 이동할 오브젝트
     [SerializeField] private float speed = 5; // 속도
 
-    private bool isActive = false;
-    public bool IsActive { get => isActive; set => isActive = value; }
-
-    
+    [field: SerializeField] public bool IsActive { get; set; } = false;
 
     private void Update()
     {
