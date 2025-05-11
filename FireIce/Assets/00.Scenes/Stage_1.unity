@@ -787,7 +787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1684494232}
   m_Layer: 0
-  m_Name: Buttons
+  m_Name: Switchs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2207,10 +2207,10 @@ SceneRoots:
   - {fileID: 679880188}
   - {fileID: 212269449}
   - {fileID: 2049765949}
+  - {fileID: 1730844075}
+  - {fileID: 885551484}
   - {fileID: 1357767202}
   - {fileID: 2640175492726942761}
   - {fileID: 1919116300}
   - {fileID: 1974641851}
   - {fileID: 1684494232}
-  - {fileID: 1730844075}
-  - {fileID: 885551484}
