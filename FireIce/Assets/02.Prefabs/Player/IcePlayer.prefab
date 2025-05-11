@@ -173,14 +173,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpForce: 7
-  leftKey: 97
-  rightKey: 100
-  jumpKey: 119
-  downKey: 115
-  layer:
-    serializedVersion: 2
-    m_Bits: 0
+  leftKey: 0
+  rightKey: 0
+  jumpKey: 0
   groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
+  abilityComponent: {fileID: 0}

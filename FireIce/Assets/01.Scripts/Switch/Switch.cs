@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour ,IFrozen
 {
-    [SerializeField] private GameObject ObstacleObj;
+    [SerializeField] private GameObject[] ObstacleObj;
     [SerializeField] private Animator animator;
     [field: SerializeField] public bool IsFrozen { get; set; } = false;
     [field: SerializeField] public GameObject IceObj { get; set; }
@@ -11,16 +11,24 @@ public class Switch : MonoBehaviour ,IFrozen
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsFrozen) return;
-        ObstacleObj.gameObject.GetComponent<IObstacleActive>().IsActive = true;
-        animator.SetBool("IsOn", true);
+        for(int i = 0; i < ObstacleObj.Length; i++)
+        {
+            if (IsFrozen) return;
+            var obstacle = ObstacleObj[i].GetComponent<IObstacleActive>();
+            obstacle.IsActive = !obstacle.IsActive;
+            animator.SetBool("IsOn", true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (IsFrozen) return;
-        ObstacleObj.gameObject.GetComponent<IObstacleActive>().IsActive = false;
-        animator.SetBool("IsOn", false);
+        for (int i = 0; i < ObstacleObj.Length; i++)
+        {
+            if (IsFrozen) return;
+            var obstacle = ObstacleObj[i].GetComponent<IObstacleActive>();
+            obstacle.IsActive = !obstacle.IsActive;
+            animator.SetBool("IsOn", false);
+        }
     }
 
     public void IsFrozenTrue()

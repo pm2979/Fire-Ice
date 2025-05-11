@@ -502,6 +502,10 @@ PrefabInstance:
       propertyPath: obstacleObj
       value: 
       objectReference: {fileID: 180359445}
+    - target: {fileID: 4976290937279165750, guid: a149be4457dbed74597ed3dd7f11af83, type: 3}
+      propertyPath: obstacleObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 180359445}
     - target: {fileID: 6175072331088290266, guid: a149be4457dbed74597ed3dd7f11af83, type: 3}
       propertyPath: m_Name
       value: Lever
@@ -588,6 +592,10 @@ PrefabInstance:
       propertyPath: <IsFrozen>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2089737223279976924, guid: 74e73e07254e63840a3a8d79ec430cee, type: 3}
+      propertyPath: ObstacleObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1989951499}
     - target: {fileID: 4107863912933182289, guid: 74e73e07254e63840a3a8d79ec430cee, type: 3}
       propertyPath: m_Name
       value: Switch
@@ -991,6 +999,11 @@ Transform:
   - {fileID: 324274338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989951499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3326455885834970345, guid: 57f8ee79fdbb2c24b97a04627f50980f, type: 3}
+  m_PrefabInstance: {fileID: 324274337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1997046746
 PrefabInstance:
   m_ObjectHideFlags: 0
