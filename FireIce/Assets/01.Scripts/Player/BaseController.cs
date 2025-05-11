@@ -19,14 +19,9 @@ public class BaseController : MonoBehaviour
     private float moveInput = 0f;
     private bool isJump; // 점프 가능 여부
 
-    private IFrozen frozenTarget = null;
-    [SerializeField] private MonoBehaviour abilityComponent;
-    private IAbility ability;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        ability = abilityComponent as IAbility;
     }
 
     private void Update()
@@ -62,13 +57,6 @@ public class BaseController : MonoBehaviour
         if (UnityEngine.Input.GetKeyDown(jumpKey) && isJump == true)
             Jump();
 
-        // 아래 키
-        if ((UnityEngine.Input.GetKeyDown(KeyCode.S) || UnityEngine.Input.GetKeyDown(KeyCode.DownArrow)) && frozenTarget != null)
-        {
-            //frozenTarget.IsFrozenTrue();
-            ability?.Interact((frozenTarget as MonoBehaviour).gameObject);
-            Debug.Log("is Frozing");
-        }
     }
 
     private void Movement() // 플레이어 움직임
@@ -96,23 +84,5 @@ public class BaseController : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         isJump = hit.collider != null ? true : false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
-        if(frozen != null)
-        {
-            frozenTarget = frozen;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
-        if(frozen != null && frozen == frozenTarget)
-        {
-            frozenTarget = null;
-        }
     }
 }

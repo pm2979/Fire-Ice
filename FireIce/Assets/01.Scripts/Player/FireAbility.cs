@@ -5,6 +5,26 @@ using UnityEngine;
 
 public class FireAbility : MonoBehaviour, IAbility
 {
+    private IFrozen frozenTarget = null;
+    [SerializeField] private MonoBehaviour abilityComponent;
+    private IAbility ability;
+
+    private void Awake()
+    {
+        ability = abilityComponent as IAbility;
+    }
+
+    private void Update()
+    {
+        // 아래 키
+        if ((Input.GetKeyDown(KeyCode.DownArrow)) && frozenTarget != null)
+        {
+            //frozenTarget.IsFrozenTrue();
+            ability?.Interact((frozenTarget as MonoBehaviour).gameObject);
+            Debug.Log("is Frozing");
+        }
+    }
+
     public void Interact(GameObject target)
     {
         Debug.Log("파이어");
@@ -26,6 +46,24 @@ public class FireAbility : MonoBehaviour, IAbility
                 data.IsFrozenFalse();
                 //data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(false)
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
+        if (frozen != null)
+        {
+            frozenTarget = frozen;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
+        if (frozen != null && frozen == frozenTarget)
+        {
+            frozenTarget = null;
         }
     }
 
