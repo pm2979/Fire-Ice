@@ -72,10 +72,10 @@ public class BaseController : MonoBehaviour
                 GameObject hitObj = hit.collider.gameObject;
                 //Debug.Log("�浹ü : " + hit.collider.name);
 
-                Ability ability = GetComponent<Ability>();
+                IAbility ability = GetComponent<IAbility>();
                 if(ability != null)
                 {
-                    gameObject.GetComponent<Ability>().Interact(hit.collider.gameObject);
+                    gameObject.GetComponent<IAbility>().Interact(hit.collider.gameObject);
                     //ability.Interact(hit.collider.gameObject);
                 }
                 else
