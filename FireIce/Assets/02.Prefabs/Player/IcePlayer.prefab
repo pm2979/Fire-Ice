@@ -176,6 +176,10 @@ MonoBehaviour:
   leftKey: 97
   rightKey: 100
   jumpKey: 119
+  downKey: 115
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
   groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
