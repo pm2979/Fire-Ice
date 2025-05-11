@@ -5,6 +5,26 @@ using static UnityEngine.GraphicsBuffer;
 
 public class IceAbility : MonoBehaviour, IAbility
 {
+    private IFrozen frozenTarget = null;
+    [SerializeField] private MonoBehaviour abilityComponent;
+    private IAbility ability;
+
+    private void Awake()
+    {
+        ability = abilityComponent as IAbility;
+    }
+
+    private void Update()
+    {
+        // 아래 키
+        if ((Input.GetKeyDown(KeyCode.S)) && frozenTarget != null)
+        {
+            //frozenTarget.IsFrozenTrue();
+            ability?.Interact((frozenTarget as MonoBehaviour).gameObject);
+            Debug.Log("is Frozing");
+        }
+    }
+
     public void Interact(GameObject target)
     {
         Debug.Log("얼음");
@@ -18,7 +38,7 @@ public class IceAbility : MonoBehaviour, IAbility
         {
             GameOver();
         }
-        else if (targetTag == ObstacleTags.statefulTag)
+        else if (target.gameObject.layer == LayerMask.NameToLayer(ObstacleTags.statefulTag))
         {
             if (target.TryGetComponent<Switch>(out var data))
             {
@@ -28,6 +48,25 @@ public class IceAbility : MonoBehaviour, IAbility
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
+        if (frozen != null)
+        {
+            frozenTarget = frozen;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
+        if (frozen != null && frozen == frozenTarget)
+        {
+            frozenTarget = null;
+        }
+    }
+
     void GameOver() //나연님 재시작 붙이기=============================================================
     {
         Debug.Log("게임 오버!");

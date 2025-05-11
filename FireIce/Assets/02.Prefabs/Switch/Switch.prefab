@@ -262,7 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041ed7fffb33b95438d7f4144bdb383f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstacleObj: {fileID: 0}
+  ObstacleObj:
+  - {fileID: 0}
   animator: {fileID: 5597930445239340909}
   <IsFrozen>k__BackingField: 0
   <IceObj>k__BackingField: {fileID: 4010984858967656674}
@@ -295,7 +296,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -26,9 +26,5 @@ public class Lever : MonoBehaviour
                 animator.SetBool("IsOn", false);
             }
         }
-
-
-
-
     }
 }
