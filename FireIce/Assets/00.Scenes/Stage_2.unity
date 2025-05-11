@@ -3214,6 +3214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
   animator: {fileID: 427873088520348169}
+  <IsFrozen>k__BackingField: 0
+  <IceObj>k__BackingField: {fileID: 0}
 --- !u!212 &8677531571331563088
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3376,6 +3378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
   animator: {fileID: 3139659075698264291}
+  <IsFrozen>k__BackingField: 0
+  <IceObj>k__BackingField: {fileID: 0}
 --- !u!1001 &8932017426581383122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3428,6 +3432,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackGrounds
       objectReference: {fileID: 0}
+    - target: {fileID: 9148800222179787873, guid: 65369f04ebecfa24ea3271421fc22a12, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9292453
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148800222179787873, guid: 65369f04ebecfa24ea3271421fc22a12, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9292453
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148800222179787873, guid: 65369f04ebecfa24ea3271421fc22a12, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3465,6 +3481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
   animator: {fileID: 1930579942198623681}
+  <IsFrozen>k__BackingField: 0
+  <IceObj>k__BackingField: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
