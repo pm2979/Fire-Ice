@@ -264,6 +264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleObj: {fileID: 0}
   animator: {fileID: 5597930445239340909}
+  <IsFrozen>k__BackingField: 0
+  <IceObj>k__BackingField: {fileID: 4010984858967656674}
 --- !u!61 &3679769968566643574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -293,7 +295,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

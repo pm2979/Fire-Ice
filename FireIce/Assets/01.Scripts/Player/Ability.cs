@@ -49,7 +49,7 @@ public class Ability : MonoBehaviour
                 {
                     if (target.TryGetComponent<Switch>(out var data)) //타겟(장애물)에 붙어있는 Switch를 찾음
                     {
-                        data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(false)
+                        //data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(false)
                     }
                 }
                 break;
@@ -68,7 +68,7 @@ public class Ability : MonoBehaviour
                 {
                     if (target.TryGetComponent<Switch>(out var data))
                     {
-                        data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(true)
+                        //data.SetFrozen(abilityType == ABILITYTYPE.ICE); //SetFrozen(true)
                     }
                 }
                 break;
