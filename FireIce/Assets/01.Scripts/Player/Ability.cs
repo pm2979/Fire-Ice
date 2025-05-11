@@ -6,6 +6,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+public interface IAbility
+{
+    void Interact(GameObject target);
+}
+
 public class Ability : MonoBehaviour
 {
 /*    private void OnCollisionEnter2D(Collision2D other)
