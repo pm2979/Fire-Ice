@@ -12,9 +12,10 @@ public class ScoreUI : MonoBehaviour
     public TMP_Text fireStarText;
     public TMP_Text iceStarText;
 
-    //단순히 게임 시작 후 시간이 흘러감을 표시
+    //흐르는 시간 , 목표 클리어 시간 표시
     [Header("타이머")]
     public TMP_Text timerText;
+    public TMP_Text targetTimeText;
 
     [Header("최종 등급")]
     public TMP_Text gradeText;
@@ -22,12 +23,17 @@ public class ScoreUI : MonoBehaviour
     int fireTotal, iceTotal;
 
     //처음에 목표 개수만 설정
-    public void InitializeTotals(int fireTotal, int iceTotal)
+    public void InitializeTotals(int fireTotal, int iceTotal, int targetTime)
     {
         this.fireTotal = fireTotal;
         this.iceTotal = iceTotal;
+
         fireStarText.text = $"0 / {fireTotal}";
         iceStarText.text = $"0 / {iceTotal}";
+
+        int tm = targetTime / 60;
+        int ts = targetTime % 60;
+        targetTimeText.text = $"목표 시간: {tm:D2}:{ts:D2}";
     }
 
     //코인 획득 개수 업데이트
@@ -40,7 +46,9 @@ public class ScoreUI : MonoBehaviour
     //경과 시간 표시
     public void UpdateTimer(float elapsedTime)
     {
-        timerText.text = $"{elapsedTime:F1}";
+        int minutes = Mathf.FloorToInt(elapsedTime / 60f);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+        timerText.text = $"{minutes:D2}:{seconds:D2}";
     }
 
     //최종 등급 표시

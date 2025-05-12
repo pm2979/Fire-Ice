@@ -24,17 +24,17 @@ public class ScoreManager : MonoBehaviour
     int fireCollected = 0, iceCollected = 0;
 
 
-    private void Awake()
+    private void Start()
     {
         // 씬에 있는 모든 Coin 오브젝트를 찾아서 총 목표치 계산
         var allCoins = FindObjectsOfType<Coin>();
         fireTotal = allCoins.Count(c => c.scoreConfig.coinType == COINTYPE.FIRESTAR);
         iceTotal = allCoins.Count(c => c.scoreConfig.coinType == COINTYPE.ICESTAR);
 
+        int limitTime = timeTracker.curtimeLimit;
         //게임 시작 초기 UI 호출
-        scoreUI.InitializeTotals(fireTotal, iceTotal);
+        scoreUI.InitializeTotals(fireTotal, iceTotal, limitTime);
     }
-
     private void OnEnable()
     {
         OnCoinType += CoinTypeCollected;

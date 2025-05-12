@@ -9,15 +9,19 @@ public class TimeTracker : MonoBehaviour
     //정해진 시간내에 클리어가 되었는지 안되었는지 체크
 
     public bool isTimeExceeded { get; private set; } 
+    
+    //실시간 타이머
     public float elapsedTime {  get; private set; }
-    private float curtimeLimit;
+
+    //목표 시간
+    public int curtimeLimit { get; private set; }
     void Awake()
     {
         // 씬에 배치된 Map 컴포넌트를 찾아서 timeConfig 읽어오기
         var map = FindObjectOfType<Map>();
         if (map != null && map.timeConfig != null)
         {
-            curtimeLimit = map.timeConfig.timeLimit;
+            curtimeLimit = map.timeConfig.TotalTime;
         }
         else
         {
