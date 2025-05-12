@@ -85,7 +85,22 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive, IFrozen
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
             col.transform.SetParent(null);
+
     }
+    //private void OnCollisionExit2D(Collision2D col)
+    //{
+    //    if (col.collider.CompareTag("Player"))
+    //    {
+    //        // 0.01초 뒤에 부모 제거
+    //        StartCoroutine(DelayedUnparent(col.transform));
+    //    }
+    //}
+
+    //private IEnumerator DelayedUnparent(Transform target)
+    //{
+    //    yield return null; // 다음 프레임까지 대기
+    //    target.SetParent(null);
+    //}
 
     public void IsFrozenTrue()
     {
