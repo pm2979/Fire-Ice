@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour, IObstacleActive
+public class MovingPlatform : MonoBehaviour, IObstacleActive, IFrozen
 {
     [Header("이동 지점")]
     [SerializeField] private List<Transform> waypoints; // 멈추는 위치
@@ -11,7 +11,12 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive
     [Header("이동 설정")]
     [SerializeField] private float speed = 2f; // 속도
     [SerializeField] private float waitTime = 1f; // 기다리는 시간
+
     [field: SerializeField] public bool IsActive { get; set; } = false;
+
+    [field: SerializeField] public bool IsFrozen { get; set; } = false;
+    [field: SerializeField] public GameObject IceObj { get; set; }
+
 
     private int currentIndex = 0; // 현재 인덱스
     private float waitCounter = 0f;
@@ -23,10 +28,14 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive
 
         // 시작 위치 세팅
         transform.position = waypoints[0].position;
+
+        FrozenActive(IsFrozen);
     }
 
     private void Update()
     {
+        if (IsFrozen) return;
+
         if (IsActive)
             Move();
     }
@@ -76,6 +85,23 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
             col.transform.SetParent(null);
+    }
+
+    public void IsFrozenTrue()
+    {
+        IsFrozen = true;
+        FrozenActive(IsFrozen);
+    }
+
+    public void IsFrozenFalse()
+    {
+        IsFrozen = false;
+        FrozenActive(IsFrozen);
+    }
+
+    public void FrozenActive(bool isIce)
+    {
+        IceObj.SetActive(isIce);
     }
 
 }

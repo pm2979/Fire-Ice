@@ -11,7 +11,7 @@ public class Switch : MonoBehaviour ,IFrozen
 
     private void Start()
     {
-        IsIceActive(IsFrozen);
+        FrozenActive(IsFrozen);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -40,16 +40,16 @@ public class Switch : MonoBehaviour ,IFrozen
     public void IsFrozenTrue()
     {
         IsFrozen = true;
-        IsIceActive(IsFrozen);
+        FrozenActive(IsFrozen);
     }
 
     public void IsFrozenFalse()
     {
         IsFrozen = false;
-        IsIceActive(IsFrozen);
+        FrozenActive(IsFrozen);
     }
 
-    public void IsIceActive(bool isIce)
+    public void FrozenActive(bool isIce)
     {
         IceObj.SetActive(isIce);
     }
