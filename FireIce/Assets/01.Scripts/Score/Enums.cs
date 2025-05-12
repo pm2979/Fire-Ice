@@ -19,3 +19,9 @@ public enum ABILITYTYPE
     FIRE,
     ICE
 }
+public enum TRAPTYPE 
+{ 
+    FIRETRAP, 
+    ICETRAP, 
+    POISONTRAP 
+}
