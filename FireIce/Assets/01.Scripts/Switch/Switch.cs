@@ -8,6 +8,11 @@ public class Switch : MonoBehaviour ,IFrozen
     [field: SerializeField] public bool IsFrozen { get; set; } = false;
     [field: SerializeField] public GameObject IceObj { get; set; }
 
+
+    private void Start()
+    {
+        IsIceActive(IsFrozen);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (IsFrozen) return;
@@ -15,7 +20,7 @@ public class Switch : MonoBehaviour ,IFrozen
         for (int i = 0; i < ObstacleObj.Length; i++)
         {
             var obstacle = ObstacleObj[i].GetComponent<IObstacleActive>();
-            obstacle.IsActive = !obstacle.IsActive;
+            obstacle.IsActive = true;
             animator.SetBool("IsOn", true);
         }
     }
@@ -27,7 +32,7 @@ public class Switch : MonoBehaviour ,IFrozen
         for (int i = 0; i < ObstacleObj.Length; i++)
         {
             var obstacle = ObstacleObj[i].GetComponent<IObstacleActive>();
-            obstacle.IsActive = !obstacle.IsActive;
+            obstacle.IsActive = false;
             animator.SetBool("IsOn", false);
         }
     }
