@@ -1305,17 +1305,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3441150164120042650, guid: b04467b050bf4c64ead92cb06bd46970, type: 3}
   m_PrefabInstance: {fileID: 1823108338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &878164337 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3434438433453733654, guid: b04467b050bf4c64ead92cb06bd46970, type: 3}
-  m_PrefabInstance: {fileID: 654031058}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bbbd7fae7815b9489b48cd0507b4119, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &878164339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3441150164120042650, guid: b04467b050bf4c64ead92cb06bd46970, type: 3}
@@ -1887,7 +1876,7 @@ PrefabInstance:
     - target: {fileID: 3434438433453733654, guid: b04467b050bf4c64ead92cb06bd46970, type: 3}
       propertyPath: teleporter
       value: 
-      objectReference: {fileID: 878164337}
+      objectReference: {fileID: 0}
     - target: {fileID: 3441150164120042650, guid: b04467b050bf4c64ead92cb06bd46970, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
