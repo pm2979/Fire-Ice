@@ -20,6 +20,15 @@ public class Teleporter : MonoBehaviour, IObstacleActive
         if (IsActive == true) animator.SetBool("IsActive", true);
         else animator.SetBool("IsActive", false);
     }
+    public void IsActiveTrue()
+    {
+        IsActive = true;
+    }
+
+    public void IsActiveFalse()
+    {
+        IsActive = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
