@@ -78,7 +78,7 @@ public class BaseController : MonoBehaviour
         // 좌우 이동 중일 때만 회전
         if (moveInput == 0f) return;
 
-        float rotationSpeed = 200f;
+        float rotationSpeed = isJump == true ? 200 : 400;
         currentZRotation += -rotationSpeed * moveInput * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0f, 0f, currentZRotation);
     }
