@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class BaseController : MonoBehaviour
     private float currentZRotation = 0f;
     private float moveInput = 0f;
     private bool isJump; // 점프 가능 여부
+    private RaycastHit2D hit;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class BaseController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+        Slide();
     }
 
     private void Input() // 입력 메서드
@@ -80,9 +83,29 @@ public class BaseController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, currentZRotation);
     }
 
+    private void Slide()
+    {
+        if (hit.collider == null) return; // 공중에 떠 있는 상태 > 슬라이드 멈춤
+
+        // 경사각 계산 (법선 벡터와 Up 벡터의 각도)
+        float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+        if (slopeAngle > 20f)
+        {
+            // 경사면을 따라 내려가는 방향(탄젠트) 구하기
+            Vector2 slideDirection = new Vector2(hit.normal.y, -hit.normal.x);
+            // 위쪽 방향으로 향해 있으면 반전
+            if (slideDirection.y > 0) slideDirection = -slideDirection;
+            slideDirection.Normalize();
+
+            // 속도 강제 설정 (중력 방향이 아닌, 경사면 방향)
+            rb.velocity = slideDirection;
+        }
+    }
+
     private void IsGrounded() // 땅인지 확인
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+        hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         isJump = hit.collider != null ? true : false;
     }
 }
