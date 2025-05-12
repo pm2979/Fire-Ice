@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 229608652524648378}
   - component: {fileID: 2217677069655086143}
   - component: {fileID: 8493120274388913474}
+  - component: {fileID: -2084946434839388477}
   m_Layer: 3
   m_Name: IcePlayer
   m_TagString: PlayerIce
@@ -180,3 +181,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
+--- !u!114 &-2084946434839388477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786891838220688426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76ff1f02b711b2408f2241fe50af121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
