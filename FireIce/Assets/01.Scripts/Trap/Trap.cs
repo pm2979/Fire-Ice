@@ -2,30 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TrapType { FireTrap, IceTrap, PoisonTrap }
 public class Trap : MonoBehaviour
 {
-    public TrapType trapType;
+    public TRAPTYPE trapType;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (trapType)
         {
-            case TrapType.FireTrap:
+            case TRAPTYPE.FIRETRAP:
                 if (collision.CompareTag("PlayerIce"))
                 {
                     GameOver();
                 }
                 break;
 
-            case TrapType.IceTrap:
+            case TRAPTYPE.ICETRAP:
                 if (collision.CompareTag("PlayerFire"))
                 {
                     GameOver();
                 }
                 break;
 
-            case TrapType.PoisonTrap:
+            case TRAPTYPE.POISONTRAP:
                 if (collision.CompareTag("PlayerFire") || collision.CompareTag("PlayerIce"))
                 {
                     GameOver();
