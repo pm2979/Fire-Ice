@@ -180,4 +180,3 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  abilityComponent: {fileID: 0}
