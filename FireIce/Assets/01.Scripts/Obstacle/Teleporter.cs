@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Teleporter : MonoBehaviour, IObstacleActive
 {
     [field: SerializeField] public bool IsActive { get; set; } = false; // 텔레포트 오브젝트의 작동 여부
+    [SerializeField] Animator animator;
 
     [Tooltip("텔레포트할 상대")]
     public Teleporter teleporter;
@@ -12,6 +14,12 @@ public class Teleporter : MonoBehaviour, IObstacleActive
     [Tooltip("텔레포트 대기 시간")]
     public float cooldown = 0.5f;
     private bool canTeleport = true;
+
+    private void Update()
+    {
+        if (IsActive == true) animator.SetBool("IsActive", true);
+        else animator.SetBool("IsActive", false);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
