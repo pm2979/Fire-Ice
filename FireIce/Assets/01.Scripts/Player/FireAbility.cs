@@ -40,7 +40,7 @@ public class FireAbility : MonoBehaviour, IAbility
         }
         else if (targetTag == ObstacleTags.statefulTag)
         {
-            if (target.TryGetComponent<Switch>(out var data)) //타겟(장애물)에 붙어있는 Switch를 찾음
+            if (target.TryGetComponent<IFrozen>(out var data)) //타겟(장애물)에 붙어있는 Switch를 찾음
             {
                 Debug.Log("불과 스위치 충돌");
                 data.IsFrozenFalse();
