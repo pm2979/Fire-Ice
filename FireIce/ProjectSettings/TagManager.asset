@@ -6,7 +6,6 @@ TagManager:
   tags:
   - PlayerFire
   - PlayerIce
-  - Stateful Obstacle
   layers:
   - Default
   - TransparentFX
