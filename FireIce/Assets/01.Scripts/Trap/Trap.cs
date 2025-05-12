@@ -36,7 +36,8 @@ public class Trap : MonoBehaviour
     }
     protected void GameOver()
     {
-        Debug.Log("Game Over");
+        var stageUI = FindObjectOfType<StageUIController>();
+        if (stageUI != null) stageUI.GameOverUI();
     }
 }
 

@@ -12,6 +12,7 @@ public class StageUIController : MonoBehaviour
     [Header("UI 패널")]
     public GameObject pauseUI;
     public GameObject clearUI;
+    public GameObject gameoverUI;
 
     [Header("등급 표시용 UI")]
     [SerializeField] private Image gradeImage;
@@ -38,15 +39,22 @@ public class StageUIController : MonoBehaviour
         }
     }
 
+    //스테이지 클리어 후 등급 결정 UI
     public void ShowClearUI(RankResult result)
     {
         clearUI.SetActive(true);
         gradeImage.sprite = gradeSprites[(int)result.Grade];
         timeCheckIcon.sprite = result.TimeSuccess ? checkSprite : crossSprite;
         coinCheckIcon.sprite = result.CoinSuccess ? checkSprite : crossSprite;
+        Time.timeScale = 0f;
     }
 
+    public void GameOverUI()
+    {
 
+        gameoverUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
     #region 버튼들
 
     //일시정지 버튼 누르면 시간 멈추고 ui 등장
