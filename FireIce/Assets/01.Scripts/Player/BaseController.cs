@@ -93,13 +93,10 @@ public class BaseController : MonoBehaviour
         if (slopeAngle > 20f)
         {
             // 경사면을 따라 내려가는 방향(탄젠트) 구하기
-            Vector2 slideDirection = new Vector2(hit.normal.y, -hit.normal.x);
+            Vector2 slideDir = new Vector2(hit.normal.y, -hit.normal.x);
             // 위쪽 방향으로 향해 있으면 반전
-            if (slideDirection.y > 0) slideDirection = -slideDirection;
-            slideDirection.Normalize();
-
-            // 속도 강제 설정 (중력 방향이 아닌, 경사면 방향)
-            rb.velocity = slideDirection;
+            if (slideDir.y > 0) slideDir = -slideDir;
+            rb.AddForce(slideDir.normalized * 70, ForceMode2D.Force);
         }
     }
 
