@@ -96,13 +96,31 @@ public class BaseController : MonoBehaviour
             Vector2 slideDir = new Vector2(hit.normal.y, -hit.normal.x);
             // 위쪽 방향으로 향해 있으면 반전
             if (slideDir.y > 0) slideDir = -slideDir;
-            rb.AddForce(slideDir.normalized * 70, ForceMode2D.Force);
+            rb.AddForce(slideDir.normalized * 50, ForceMode2D.Force);
         }
     }
 
-    private void IsGrounded() // 땅인지 확인
+    //private void IsGrounded() // 땅인지 확인
+    //{
+    //    hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+    //    isJump = hit.collider != null ? true : false;
+    //    Debug.DrawRay(transform.position, Vector2.down * groundCheckDistance, Color.red);
+    //}
+    
+    private void IsGrounded()
     {
-        hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-        isJump = hit.collider != null ? true : false;
+        bool grounded = false;
+
+        // 가운데
+        if (Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer))
+            grounded = true;
+        // 왼쪽 아래
+        else if (Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, 40) * Vector2.down, groundCheckDistance, groundLayer))
+            grounded = true;
+        // 오른쪽 아래
+        else if (Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, -40) * Vector2.down, groundCheckDistance, groundLayer))
+            grounded = true;
+
+        isJump = grounded;
     }
 }
