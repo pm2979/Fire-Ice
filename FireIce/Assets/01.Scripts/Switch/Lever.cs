@@ -15,14 +15,14 @@ public class Lever : MonoBehaviour
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && obstacleObj[i].GetComponent<IObstacleActive>().IsActive == false)
             {
                 var obstacle = obstacleObj[i].GetComponent<IObstacleActive>();
-                obstacle.IsActive = !obstacle.IsActive;
+                obstacle.IsActiveTrue();
                 animator.SetBool("IsOn", true);
             }
             // 플레이어와 충동하면 연결된 장애물 비활성화
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && obstacleObj[i].GetComponent<IObstacleActive>().IsActive == true)
             {
                 var obstacle = obstacleObj[i].GetComponent<IObstacleActive>();
-                obstacle.IsActive = !obstacle.IsActive;
+                obstacle.IsActiveFalse();
                 animator.SetBool("IsOn", false);
             }
         }

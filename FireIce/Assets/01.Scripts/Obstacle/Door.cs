@@ -14,6 +14,16 @@ public class Door : MonoBehaviour, IObstacleActive
 
     [field: SerializeField] public bool IsActive { get; set; } = false;
 
+    public void IsActiveTrue()
+    {
+        IsActive = true;
+    }
+
+    public void IsActiveFalse()
+    {
+        IsActive = false;
+    }
+
     private void Update()
     {
 

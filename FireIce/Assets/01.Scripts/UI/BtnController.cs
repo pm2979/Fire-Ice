@@ -21,5 +21,36 @@ public class BtnController : MonoBehaviour
         Application.Quit();
 #endif
     }
-
+    public void OnStage1()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void OnStage2()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void OnStage3()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void OnStage4()
+    {
+        SceneManager.LoadScene(5);
+    }
+    public void OnStage5()
+    {
+        SceneManager.LoadScene(6);
+    }
+    public void OnCostume()
+    {
+        SceneManager.LoadScene(7);
+    }
+    public void StageSelectToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void CustumeToStageSelect()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

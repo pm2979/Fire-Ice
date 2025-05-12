@@ -8,8 +8,17 @@ public class OpenWall : MonoBehaviour, IObstacleActive
     [SerializeField] private float zAngle = 90f; // 최대 회전 각도
     [SerializeField] private float speed = 5; // 속도
 
-    private bool isActive = false;
-    public bool IsActive { get => isActive; set => isActive = value; }
+    [field: SerializeField] public bool IsActive { get; set; } = false;
+
+    public void IsActiveTrue()
+    {
+        IsActive = true;
+    }
+
+    public void IsActiveFalse()
+    {
+        IsActive = false;
+    }
 
     private void Update()
     {

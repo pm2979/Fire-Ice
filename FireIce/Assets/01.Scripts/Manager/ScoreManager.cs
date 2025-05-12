@@ -19,22 +19,23 @@ public class ScoreManager : MonoBehaviour
     [Header("스크립트 참조")]
     [SerializeField] ScoreUI scoreUI;
     [SerializeField] TimeTracker timeTracker;
+    [SerializeField] StageUIController stageUI;
 
     int fireTotal, iceTotal;
     int fireCollected = 0, iceCollected = 0;
 
 
-    private void Awake()
+    private void Start()
     {
         // 씬에 있는 모든 Coin 오브젝트를 찾아서 총 목표치 계산
         var allCoins = FindObjectsOfType<Coin>();
         fireTotal = allCoins.Count(c => c.scoreConfig.coinType == COINTYPE.FIRESTAR);
         iceTotal = allCoins.Count(c => c.scoreConfig.coinType == COINTYPE.ICESTAR);
 
+        int limitTime = timeTracker.curtimeLimit;
         //게임 시작 초기 UI 호출
-        scoreUI.InitializeTotals(fireTotal, iceTotal);
+        scoreUI.InitializeTotals(fireTotal, iceTotal, limitTime);
     }
-
     private void OnEnable()
     {
         OnCoinType += CoinTypeCollected;
@@ -81,25 +82,30 @@ public class ScoreManager : MonoBehaviour
     public void Rank()
     {
         //제한 시간을 넘기지 않으면 false로 넘어옴. !가 붙었으므로 true임
-        bool withinTime = !timeTracker.isTimeExceeded;
+        bool timeOK = !timeTracker.isTimeExceeded;
         //모든 파이어스타 먹으면 true
-        bool allFire = fireCollected == fireTotal;
+        bool fireOK = fireCollected == fireTotal;
         //모든 아이스스타 먹으면 true
-        bool allIce = iceCollected == iceTotal;
+        bool iceOK = iceCollected == iceTotal;
 
         GRADE result;
-        if (withinTime && allFire && allIce)
+        
+        if (timeOK && fireOK && iceOK)
         {
             result = GRADE.A;
         }
-        else if ((withinTime && (!allFire || !allIce))
-              || (!withinTime && allFire && allIce))
+        else if ((timeOK && (!fireOK || !iceOK)) ||
+                 (!timeOK && (fireOK && iceOK)))
         {
             result = GRADE.B;
         }
-        else result = GRADE.C;
+        else
+        {
+            result = GRADE.C;
+        }
 
-        scoreUI.DisplayGrade(result);
+        var rankResult = new StageUIController.RankResult(result, timeOK, fireOK && iceOK);
+        stageUI.ShowClearUI(rankResult);
         Debug.Log($"최종 등급: {result}");
     }
 }

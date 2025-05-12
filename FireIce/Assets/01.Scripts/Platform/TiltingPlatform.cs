@@ -11,22 +11,22 @@ public class TiltingPlatform : MonoBehaviour ,IFrozen
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        IsIceActive(IsFrozen);
+        FrozenActive(IsFrozen);
     }
 
     public void IsFrozenTrue()
     {
         IsFrozen = true;
-        IsIceActive(IsFrozen);
+        FrozenActive(IsFrozen);
     }
 
     public void IsFrozenFalse()
     {
         IsFrozen = false;
-        IsIceActive(IsFrozen);
+        FrozenActive(IsFrozen);
     }
 
-    public void IsIceActive(bool isIce)
+    public void FrozenActive(bool isIce)
     {
         rb.freezeRotation = isIce;
         IceObj.SetActive(isIce);
