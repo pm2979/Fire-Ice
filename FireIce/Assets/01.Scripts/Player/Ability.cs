@@ -47,10 +47,16 @@ public abstract class Ability : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject collidedObject = collision.collider.gameObject;
+
         IFrozen frozen = collision.collider.GetComponent<IFrozen>();
         if (frozen != null)
         {
             frozenTarget = frozen;
+        }
+        else
+        {
+            Interact(collidedObject);
         }
     }
 
