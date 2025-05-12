@@ -54,3 +54,4 @@ public class BtnController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 }
+

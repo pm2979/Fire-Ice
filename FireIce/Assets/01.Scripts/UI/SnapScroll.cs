@@ -48,7 +48,7 @@ public class SnapScroll : MonoBehaviour
         contentPanel.anchoredPosition = Vector2.Lerp(contentPanel.anchoredPosition, targetPosition, Time.deltaTime * snapSpeed);
     }
     void HighlightSelected()
-    {   //
+    {   
         for (int i = 0; i < snapTargets.Count; i++)
         {
             //각 버튼이 현재 선택된 버튼인지 확인
