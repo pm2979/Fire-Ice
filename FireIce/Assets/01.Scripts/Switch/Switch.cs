@@ -20,7 +20,7 @@ public class Switch : MonoBehaviour ,IFrozen
         for (int i = 0; i < ObstacleObj.Length; i++)
         {
             var obstacle = ObstacleObj[i].GetComponent<IObstacleActive>();
-            obstacle.IsActive = true;
+            obstacle.IsActiveTrue();
             animator.SetBool("IsOn", true);
         }
     }
@@ -32,7 +32,7 @@ public class Switch : MonoBehaviour ,IFrozen
         for (int i = 0; i < ObstacleObj.Length; i++)
         {
             var obstacle = ObstacleObj[i].GetComponent<IObstacleActive>();
-            obstacle.IsActive = false;
+            obstacle.IsActiveFalse();
             animator.SetBool("IsOn", false);
         }
     }

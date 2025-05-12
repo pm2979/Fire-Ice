@@ -31,6 +31,16 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive
             Move();
     }
 
+    public void IsActiveTrue()
+    {
+        IsActive = true;
+    }
+
+    public void IsActiveFalse()
+    {
+        IsActive = false;
+    }
+
     private void Move()
     {
         if (waitCounter > 0f) // 도착시 기다리는 시간 계산
