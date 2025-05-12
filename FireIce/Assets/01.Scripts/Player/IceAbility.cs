@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.IsolatedStorage;
 using UnityEngine;
 
 public class IceAbility : Ability
 {
-    protected override bool InputKeyAbility()
+    protected override bool InputKeyAbility() //다운 키 : S
     {
         return Input.GetKeyDown(KeyCode.S);
     }
 
-    protected override void HandleIFrozen(IFrozen frozen)
+    protected override void HandleIFrozen(IFrozen frozen) //IFrozen과 충돌 시 IsFrozenTrue() 실행
     {
         frozen.IsFrozenTrue();
     }
 
-    protected override void InFirePool()
+    protected override void InFirePool() //불에 닿이면 게임 오버
     {
         GameOver();
     }
