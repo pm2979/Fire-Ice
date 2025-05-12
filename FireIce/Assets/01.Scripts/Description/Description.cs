@@ -31,7 +31,7 @@ public class Description : MonoBehaviour
             // 방어 코드: 음수로 내려가지 않게
             if (playerCount < 0) playerCount = 0;
 
-            if (playerCount == 0)
+            if (playerCount == 0 && description != null)
             {
                 description.gameObject.SetActive(false);
             }

@@ -46,13 +46,13 @@ public class BaseController : MonoBehaviour
         if (UnityEngine.Input.GetKey(leftKey))
         {
             if(isJump == true) moveInput = -1f;
-            if(isJump == false) moveInput = -0.5f;
+            if(isJump == false) moveInput = -0.8f;
 
         }
         else if (UnityEngine.Input.GetKey(rightKey))
         {
             if (isJump == true) moveInput = 1f;
-            if (isJump == false) moveInput = 0.5f;
+            if (isJump == false) moveInput = 0.8f;
         }
         else moveInput = 0f;
 
