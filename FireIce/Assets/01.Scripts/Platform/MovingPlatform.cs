@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour, IObstacleActive
 {
-    [Header("이동 지점들")]
+    [Header("이동 지점")]
     [SerializeField] private List<Transform> waypoints; // 멈추는 위치
 
     [Header("이동 설정")]

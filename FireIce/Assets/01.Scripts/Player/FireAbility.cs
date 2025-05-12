@@ -12,7 +12,7 @@ public class FireAbility : Ability
 
     protected override void HandleIFrozen(IFrozen frozen)
     {
-        frozen.IsFrozen = false;
+        frozen.IsFrozenFalse();
     }
 
     protected override void InIcePool()
