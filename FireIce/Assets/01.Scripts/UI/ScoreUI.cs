@@ -17,9 +17,6 @@ public class ScoreUI : MonoBehaviour
     public TMP_Text timerText;
     public TMP_Text targetTimeText;
 
-    [Header("최종 등급")]
-    public TMP_Text gradeText;
-
     int fireTotal, iceTotal;
 
     //처음에 목표 개수만 설정
@@ -49,11 +46,5 @@ public class ScoreUI : MonoBehaviour
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
         timerText.text = $"{minutes:D2}:{seconds:D2}";
-    }
-
-    //최종 등급 표시
-    public void DisplayGrade(GRADE grade)
-    {
-        gradeText.text = grade.ToString();
     }
 }

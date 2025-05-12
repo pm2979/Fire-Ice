@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class StageUIController : MonoBehaviour
@@ -11,9 +13,39 @@ public class StageUIController : MonoBehaviour
     public GameObject pauseUI;
     public GameObject clearUI;
 
-    //체크 혹은 x 이미지 , 등급 이미지, 나가기 버튼
+    [Header("등급 표시용 UI")]
+    [SerializeField] private Image gradeImage;
+    [SerializeField] private Sprite[] gradeSprites;// A,B,C 
 
-    
+    [Header("조건 체크 아이콘")]
+    [SerializeField] private Image timeCheckIcon;
+    [SerializeField] private Image coinCheckIcon;
+    [SerializeField] private Sprite checkSprite;         
+    [SerializeField] private Sprite crossSprite;
+
+
+    public struct RankResult
+    {
+        public GRADE Grade;       // A, B, C
+        public bool TimeSuccess;  // 시간 조건 달성 여부
+        public bool CoinSuccess;  // 코인 조건 달성 여부
+
+        public RankResult(GRADE grade, bool timeSuccess, bool coinSuccess)
+        {
+            Grade = grade;
+            TimeSuccess = timeSuccess;
+            CoinSuccess = coinSuccess;
+        }
+    }
+
+    public void ShowClearUI(RankResult result)
+    {
+        clearUI.SetActive(true);
+        gradeImage.sprite = gradeSprites[(int)result.Grade];
+        timeCheckIcon.sprite = result.TimeSuccess ? checkSprite : crossSprite;
+        coinCheckIcon.sprite = result.CoinSuccess ? checkSprite : crossSprite;
+    }
+
 
     #region 버튼들
 
