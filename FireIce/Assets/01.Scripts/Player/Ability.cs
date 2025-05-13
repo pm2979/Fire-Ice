@@ -90,6 +90,7 @@ public abstract class Ability : MonoBehaviour
 
     public void GameOver()
     {
+        SoundManager.Instance.PlaySound(SoundType.SFX, "21_orc_damage_3");
         GameManager.Instance.GameOverUI();
         Debug.Log("게임 오버!");
     }

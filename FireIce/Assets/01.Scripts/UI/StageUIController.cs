@@ -88,6 +88,7 @@ public class StageUIController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
+        SoundManager.Instance.PlaySound(SoundType.BGM, "Goblins_Den_(Regular)");
     }
     //게임 종료(Esc)
     public void OnExitGameBtn()
