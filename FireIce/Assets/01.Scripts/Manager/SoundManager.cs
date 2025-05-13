@@ -30,38 +30,43 @@ public class SoundManager : Singleton<SoundManager>
     */
 
     [SerializeField] private AudioMixer audioMixer;
-    //사운드 타입의 볼륨 조절
+    //오디오 믹서로 볼륨 조절
 
     [SerializeField] private List<AudioClip> audioClipList;
+    //사용할 오디오 클립 보관
 
     [HideInInspector]public Dictionary<SoundType, List<SoundPlayer>> soundPlayerDic;
-    //클립 딕셔너리
+    //재생 중인 SoundPlayer을 보관
 
     public AudioMixer AudioMixer { get { return audioMixer; } }
+    //외부에서 오디오 믹서 접근 허용
 
     private void Awake()
     {
         base.Awake();
         soundPlayerDic = new Dictionary<SoundType, List<SoundPlayer>>();
+        //딕셔너리 초기화
     }
 
-    public void SetVolume(SoundType type, float volume)
+    public void SetVolume(SoundType type, float volume) //볼륨 조절
     {
         audioMixer.SetFloat(type.ToString(), Mathf.Log10(volume) * 20);
     }
 
-    public void PlaySound(SoundType type, string name, bool isLoop = false)
+    public void PlaySound(SoundType type, string name, bool isLoop = false) //사운드 재생
     {
         if(type==SoundType.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
         {
-            return;
+            return; //BGM 단일 재생
         }
         GameObject go = Instantiate(new GameObject(), transform);
         SoundPlayer sp = go.AddComponent<SoundPlayer>();
         AudioMixerGroup mixerGroup = audioMixer.FindMatchingGroups(type.ToString())[0];
+        //AduioMixer에서 타입과 맞는 믹서그룹 찾음
         AudioClip clip = audioClipList.Find( x => x.name == name );
+        //name으로 오디오 검색
 
-        sp.Setting(mixerGroup, clip, isLoop);
+        sp.Setting(mixerGroup, clip, isLoop, type);
         sp.Play();
 
         if (soundPlayerDic.ContainsKey(type))
