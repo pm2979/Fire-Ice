@@ -44,11 +44,11 @@ public abstract class Ability : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) //충돌이 시작될 때 실행
+    private void OnTriggerEnter2D(Collider2D collision) //충돌이 시작될 때 실행
     {
-        GameObject collidedObject = collision.collider.gameObject; //충돌한 오브젝트를 collideredObject에 저장
+        GameObject collidedObject = collision.gameObject; //충돌한 오브젝트를 collideredObject에 저장
 
-        IFrozen frozen = collision.collider.GetComponent<IFrozen>(); //충돌한 오브젝트에서 frozen을 찾음
+        IFrozen frozen = collision.GetComponent<IFrozen>(); //충돌한 오브젝트에서 frozen을 찾음
         if (frozen != null) //frozen을 찾았다면
         {
             frozenTarget = frozen; //frozenTarget에 저장
@@ -59,9 +59,9 @@ public abstract class Ability : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision) //충돌이 끝날 때 실행
+    private void OnTriggerExit2D(Collider2D collision) //충돌이 끝날 때 실행
     {
-        IFrozen frozen = collision.collider.GetComponent<IFrozen>();
+        IFrozen frozen = collision.GetComponent<IFrozen>();
         if (frozen != null && frozen == frozenTarget) //충돌이 끝난 오브젝트가 frozenTarget이면
         {
             frozenTarget = null; //null로 초기화
