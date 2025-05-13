@@ -86,6 +86,7 @@ public abstract class Ability : MonoBehaviour
 
     public void GameOver()
     {
+        GameManager.Instance.GameOverUI();
         Debug.Log("게임 오버!");
     }
     protected virtual void HandleIFrozen(IFrozen frozen)

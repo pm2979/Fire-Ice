@@ -99,12 +99,12 @@ public class BaseController : MonoBehaviour
             groundLayer
         );
 
-        if (isJump == false) return; // 공중에 떠 있는 상태 > 슬라이드 멈춤
+        if (hit.normal == null) return; // 공중에 떠 있는 상태 > 슬라이드 멈춤
 
         // 경사각 계산 (법선 벡터와 Up 벡터의 각도)
         float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-        if (slopeAngle > 20f)
+        if (slopeAngle > 20f && slopeAngle < 90)
         {
             // 경사면을 따라 내려가는 방향(탄젠트) 구하기
             Vector2 slideDir = new Vector2(hit.normal.y, -hit.normal.x);
