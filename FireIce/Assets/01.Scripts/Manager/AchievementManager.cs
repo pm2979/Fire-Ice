@@ -1,34 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class AchievementManager : MonoBehaviour
 {
+    public TextMeshProUGUI[] AchieveNames;
+    public TextMeshProUGUI rightNameText;
+    public TextMeshProUGUI rightDescText;
+
+
+
+
     // 업적 목록
-    private List<Achievement> achievements = new List<Achievement>();
+    private List<AchievementList> achievements = new List<AchievementList>();
 
     private void Start()
     {
         AddAchievement("무사 탈출","한 번도 죽지 않고 스테이지를 클리어 하세요.",0f,false);
-        AddAchievement("","",0f,false);
-        AddAchievement("","",0f,false);
+        AddAchievement("123","1234",0f,false);
+        AddAchievement("14","135",0f,false);
+
+        for (int i = 0; i<achievements.Count&& i<AchieveNames.Length; i++)
+        {
+            AchieveNames[i].text = achievements[i].name;
+        }
+
+
+    }
+
+    public void ShowAchievementInfo(int index)
+    {
+        if (index >= 0 && index < achievements.Count)
+        {
+            rightNameText.text = achievements[index].name;
+            rightDescText.text = achievements[index].description;
+        }
     }
 
 
-
-
-    // 업적을 추가하는 함수
+    // 업적 추가
     public void AddAchievement(string name, string description, float completionPercentage, bool isCompleted)
     {
-        Achievement newAchievement = new Achievement(name, description, completionPercentage, isCompleted);
+        AchievementList newAchievement = new AchievementList(name, description, completionPercentage, isCompleted);
         achievements.Add(newAchievement);
     }
 
-    // 업적을 업데이트하는 함수
+    // 업적 업데이트
     public void UpdateAchievementProgress(string name, float progress)
     {
-        Achievement achievement = achievements.Find(x => x.name == name);
+        AchievementList achievement = achievements.Find(x => x.name == name);
         if (achievement != null)
         {
             achievement.completionPercentage = progress;
@@ -40,18 +63,18 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
-    // 업적을 완료 처리하는 함수
+    // 업적 완료
     public void CompleteAchievement(string name)
     {
-        Achievement achievement = achievements.Find(x => x.name == name);
+        AchievementList achievement = achievements.Find(x => x.name == name);
         if (achievement != null && !achievement.isCompleted)
         {
             achievement.isCompleted = true;
         }
     }
 
-    // 업적 정보를 반환하는 함수
-    public List<Achievement> GetAchievements()
+    // 업적 정보 반환
+    public List<AchievementList> GetAchievements()
     {
         return achievements;
     }
@@ -66,14 +89,14 @@ public class AchievementManager : MonoBehaviour
 }
 
 // 업적 데이터를 저장하는 구조체 (또는 클래스)
-public class Achievement
+public class AchievementList
 {
     public string name;
     public string description;
     public float completionPercentage;
     public bool isCompleted;
 
-    public Achievement(string name, string description, float completionPercentage, bool isCompleted)
+    public AchievementList(string name, string description, float completionPercentage, bool isCompleted)
     {
         this.name = name;
         this.description = description;

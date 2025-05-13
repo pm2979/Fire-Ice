@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Scenes/CostumeSelect.unity
     guid: 3ddc4760b3136bd4a8f9b4443531ff6e
+  - enabled: 1
+    path: Assets/00.Scenes/Achievement.unity
+    guid: 040cb9978c55d1f4dacc538912b036fe
   m_configObjects: {}

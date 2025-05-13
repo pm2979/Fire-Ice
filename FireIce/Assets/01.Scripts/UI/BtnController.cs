@@ -12,6 +12,11 @@ public class BtnController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void OnAchievement()
+    {
+        SceneManager.LoadScene(8);
+    }
+
     public void OnExitBtn()
     {
 #if UNITY_EDITOR
