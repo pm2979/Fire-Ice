@@ -4,6 +4,12 @@ using UnityEngine;
 
 public static class CostumeData
 {
-    public static string fireCostumeId = "Nothing";
-    public static string iceCostumeId = "Nothing";
+    public static string fireCostumeId;
+    public static string iceCostumeId;
+
+    static CostumeData()
+    {
+        fireCostumeId = PlayerPrefs.GetString("FireCostume", "Nothing");
+        iceCostumeId = PlayerPrefs.GetString("IceCostume", "Nothing");
+    }
 }

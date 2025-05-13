@@ -25,13 +25,20 @@ public class CostumeManager : MonoBehaviour
     {
         if (selectedPlayerIndex == playerIndex && isChanging)
         {
-            // ¿˙¿Â Ω√
             if (currentSelections.TryGetValue(playerIndex, out string costumeId))
             {
                 if (playerIndex == 0)
+                {
                     CostumeData.fireCostumeId = costumeId;
+                    PlayerPrefs.SetString("FireCostume", costumeId);
+                }
                 else
+                {
                     CostumeData.iceCostumeId = costumeId;
+                    PlayerPrefs.SetString("IceCostume", costumeId);
+                }
+
+                PlayerPrefs.Save(); // ¿˙¿Âµ 
 
                 Debug.Log($"[Save] Player {playerIndex} °Ê '{costumeId}' ¿˙¿Âµ ");
             }
@@ -42,6 +49,7 @@ public class CostumeManager : MonoBehaviour
             SetButtonText(fireChangeText, "Change");
             SetButtonText(iceChangeText, "Change");
         }
+
         else
         {
             selectedPlayerIndex = playerIndex;
