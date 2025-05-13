@@ -13,6 +13,11 @@ public class BtnController : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundType.BGM, "Goblins_Den_(Regular)");
     }
 
+    public void OnAchievement()
+    {
+        SceneManager.LoadScene(8);
+    }
+
     public void OnExitBtn()
     {
 #if UNITY_EDITOR
