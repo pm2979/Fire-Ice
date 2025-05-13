@@ -4923,7 +4923,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3040586608835161420}
         m_TargetAssemblyTypeName: StageUIController, Assembly-CSharp
-        m_MethodName: OnExitToStageSelect
+        m_MethodName: OnExitToStageSelectBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
