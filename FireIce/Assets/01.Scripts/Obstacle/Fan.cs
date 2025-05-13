@@ -11,17 +11,18 @@ public class Fan : MonoBehaviour, IObstacleActive
 
     private void Start()
     {
+        // 시작 파티클
         if (IsActive == true) windParticle.Play();
         else windParticle.Stop();
     }
 
-    public void IsActiveTrue()
+    public void IsActiveTrue() // Fan 활성화
     {
         IsActive = true;
         windParticle.Play();
     }
 
-    public void IsActiveFalse()
+    public void IsActiveFalse() // Fan 비활성화
     {
         IsActive = false;
         windParticle.Stop();
@@ -36,11 +37,12 @@ public class Fan : MonoBehaviour, IObstacleActive
             {
                 Rigidbody2D rb = col.attachedRigidbody;
 
+                // 플레이어 상승
                 rb.gravityScale = 0f;
                 rb.AddForce(Vector2.up * upPower, ForceMode2D.Force);
             }
         }
-        else
+        else // 상승 중 비활성화
         {
             Rigidbody2D rb = col.attachedRigidbody;
 
