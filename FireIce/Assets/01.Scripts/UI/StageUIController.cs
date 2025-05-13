@@ -74,6 +74,7 @@ public class StageUIController : MonoBehaviour
     public void OnResumeBtn()
     {
         pauseUI.SetActive(false);
+        escapeUI.SetActive(false);
         Time.timeScale = 1f;
     }
     //현재 스테이지 재시작
