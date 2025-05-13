@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 
 public abstract class Ability : MonoBehaviour
 {
+    AchievementConditions AchievementConditions { get; set; }
     public const string fireTag = "Fire Obstacle"; //불 Tag (용암풀)
     public const string iceTag = "Ice Obstacle"; //얼음 Tag (얼음풀)
     public const string poisonTag = "Poison Obstacle"; //독 Tag
@@ -91,7 +92,9 @@ public abstract class Ability : MonoBehaviour
     public void GameOver()
     {
         GameManager.Instance.GameOverUI();
+        //AchievementConditions.deathCount++;
         Debug.Log("게임 오버!");
+
     }
     protected virtual void HandleIFrozen(IFrozen frozen)
     {

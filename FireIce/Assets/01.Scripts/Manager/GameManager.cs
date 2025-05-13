@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     private StageUIController uIController;
+    private AchievementConditions AchievementConditions;
+    private AchievementList AchievementList;
     private int totalDoor;
     private int openDoor;
     protected override void Awake()
@@ -39,14 +41,22 @@ public class GameManager : Singleton<GameManager>
     }
     public void GameOverUI()
     {
-        if(uIController != null)
+        AchievementConditions = FindObjectOfType<AchievementConditions>();
+        AchievementConditions.deathCount++;
+        if (uIController != null)
         {
             uIController.GameOverUI();
         }
+
+
     }
 
     public void NotifyDoorOpened()
     {
+        AchievementConditions = FindObjectOfType<AchievementConditions>();
+        AchievementList = FindObjectOfType<AchievementList>();
+        AchievementConditions.CheckNoDeathClear();
+        AchievementConditions.OnCheckAchievement();
         openDoor++;
         // 모든 문이 열렸다면 한 번만 실행
         if (openDoor >= totalDoor)
@@ -55,6 +65,7 @@ public class GameManager : Singleton<GameManager>
             if (scoreMg != null)
                 scoreMg.Rank();
         }
+        
     }
 
 
