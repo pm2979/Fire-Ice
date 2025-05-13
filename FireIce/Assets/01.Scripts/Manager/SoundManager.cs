@@ -17,6 +17,9 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private List<AudioClip> audioClipList;
     //사용할 오디오 클립 보관
 
+    [SerializeField] private int initialPoolSize = 6;
+    private List<SoundPlayer> sfxPool = new List<SoundPlayer>();
+
     [HideInInspector]public Dictionary<SoundType, List<SoundPlayer>> soundPlayerDic;
     //재생 중인 SoundPlayer을 보관
 
@@ -30,6 +33,20 @@ public class SoundManager : Singleton<SoundManager>
         base.Awake();
         soundPlayerDic = new Dictionary<SoundType, List<SoundPlayer>>();
         //딕셔너리 초기화
+
+        for(int i = 0; i < initialPoolSize; i++) //SFX사운드 재생하기 위한 객체를 미리 만들기
+        {
+            SoundPlayer sp = CreateSoundPlayer();
+            sfxPool.Add(sp);
+        }
+    }
+
+    private SoundPlayer CreateSoundPlayer() //SoundPlayer 만들기
+    {
+        GameObject go = new GameObject("SoundPlayer");
+        go.transform.parent = this.transform;
+        SoundPlayer sp = go.AddComponent<SoundPlayer>();
+        return sp;
     }
 
     public void SetVolume(SoundType type, float volume) //볼륨 조절
@@ -43,8 +60,7 @@ public class SoundManager : Singleton<SoundManager>
         {
             return; //BGM 단일 재생
         }
-        GameObject go = Instantiate(new GameObject(), transform);
-        SoundPlayer sp = go.AddComponent<SoundPlayer>();
+        SoundPlayer sp = GetSoundPlayerFromPool();
         AudioMixerGroup mixerGroup = audioMixer.FindMatchingGroups(type.ToString())[0];
         //AduioMixer에서 타입과 맞는 믹서그룹 찾음
         AudioClip clip = audioClipList.Find( x => x.name == name );
@@ -85,6 +101,21 @@ public class SoundManager : Singleton<SoundManager>
             }
             soundPlayerDic[SoundType.BGM].Clear();
         }  
+    }
+
+    private SoundPlayer GetSoundPlayerFromPool()
+    {
+        foreach (var sp in sfxPool)
+        {
+            if (!sp.IsPlaying)
+            {
+                return sp;
+            }
+        }
+
+        SoundPlayer newSp = CreateSoundPlayer();
+        sfxPool.Add(newSp);
+        return newSp;
     }
 }
 
