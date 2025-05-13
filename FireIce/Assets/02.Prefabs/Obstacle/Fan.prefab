@@ -5009,7 +5009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsActive>k__BackingField: 1
-  upPower: 0.1
+  upPower: 2
   windParticle: {fileID: 4760286176634032694}
 --- !u!61 &3796504228120174657
 BoxCollider2D:
