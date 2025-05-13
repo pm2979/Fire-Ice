@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class StageUIController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class StageUIController : MonoBehaviour
     public GameObject pauseUI;
     public GameObject clearUI;
     public GameObject gameoverUI;
+    public GameObject escapeUI;
 
     [Header("등급 표시용 UI")]
     [SerializeField] private Image gradeImage;
@@ -55,6 +57,11 @@ public class StageUIController : MonoBehaviour
         gameoverUI.SetActive(true);
         Time.timeScale = 0f;
     }
+    public void OnEscape()
+    {
+        escapeUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
     #region 버튼들
 
     //일시정지 버튼 누르면 시간 멈추고 ui 등장
@@ -67,6 +74,7 @@ public class StageUIController : MonoBehaviour
     public void OnResumeBtn()
     {
         pauseUI.SetActive(false);
+        escapeUI.SetActive(false);
         Time.timeScale = 1f;
     }
     //현재 스테이지 재시작
@@ -76,12 +84,25 @@ public class StageUIController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //스테이지 선택씬으로 이동
-    public void OnExitToStageSelect()
+    public void OnExitToStageSelectBtn()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
+    //게임 종료(Esc)
+    public void OnExitGameBtn()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        // 실제 빌드된 게임에서는 애플리케이션 종료
+        Application.Quit();
+#endif
+    }
     #endregion
 
-
 }
+
+
+
+
