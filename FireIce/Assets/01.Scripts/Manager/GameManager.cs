@@ -51,7 +51,6 @@ public class GameManager : Singleton<GameManager>
         // 모든 문이 열렸다면 한 번만 실행
         if (openDoor >= totalDoor)
         {
-            
             var scoreMg = FindObjectOfType<ScoreManager>();
             if (scoreMg != null)
                 scoreMg.Rank();

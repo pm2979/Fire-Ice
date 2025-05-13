@@ -10,6 +10,10 @@ using UnityEngine.UIElements;
 
 public abstract class Ability : MonoBehaviour
 {
+    public const string fireTag = "Fire Obstacle"; //불 Tag (용암풀)
+    public const string iceTag = "Ice Obstacle"; //얼음 Tag (얼음풀)
+    public const string poisonTag = "Poison Obstacle"; //독 Tag
+
     protected IFrozen frozenTarget = null; //플레이어와 충돌한 오브젝트가 IFrozen을 가지고 있을 때 충돌한 오브젝트를 저장할 변수
 
     private void Update()
@@ -30,15 +34,15 @@ public abstract class Ability : MonoBehaviour
         {
             HandleIFrozen(data);
         }
-        else if(targetTag == ObstacleTags.poisonTag) //독에 빠지면 게임오버
+        else if(targetTag == poisonTag) //독에 빠지면 게임오버
         {
             GameOver();
         }
-        else if(targetTag == ObstacleTags.iceTag) //얼음과 부딪히면,
+        else if(targetTag == iceTag) //얼음과 부딪히면,
         {
             InIcePool();
         }
-        else if(targetTag == ObstacleTags.fireTag) //불과 부딪히면,
+        else if(targetTag == fireTag) //불과 부딪히면,
         {
             InFirePool();
         }
@@ -102,11 +106,3 @@ public abstract class Ability : MonoBehaviour
         // 플레이어에 따라 게임 오버 or Debug.Log | 자식 클래스에서 정의
     }
 }
-
-public class ObstacleTags
-{
-    public const string fireTag = "Fire Obstacle"; //불 Tag (용암풀)
-    public const string iceTag = "Ice Obstacle"; //얼음 Tag (얼음풀)
-    public const string poisonTag = "Poison Obstacle"; //독 Tag
-}
-
