@@ -6,7 +6,8 @@ public enum DoorType { Normal, FireDoor, IceDoor }
 public class ExitDoor : MonoBehaviour
 {
     private Animator animator;
-    public DoorType doorType;
+    public DoorType doorType; // 문 타입 결정
+
     private bool firePlayerEntered = false;
     private bool icePlayerEntered = false;
 
@@ -14,26 +15,27 @@ public class ExitDoor : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
     }
-    private void OnTriggerEnter2D(Collider2D col)
+
+    private void OnTriggerEnter2D(Collider2D col) // 문 활성화
     {
         switch (doorType)
         {
-            case DoorType.Normal:
+            case DoorType.Normal: // 플레이어 둘 다 있어야 활성화
                 if (col.CompareTag("PlayerIce")) icePlayerEntered=true;
                 if (col.CompareTag("PlayerFire")) firePlayerEntered=true;
                 if (firePlayerEntered && icePlayerEntered) animator.SetBool("IsOpen", true);
                 //if(firePlayerEntered && icePlayerEntered) SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
                 break;
-            case DoorType.IceDoor:
+            case DoorType.IceDoor: // 얼음 플레이어 활성화
                 if (col.CompareTag("PlayerIce")) animator.SetBool("IsOpen", true);
                 break;
-            case DoorType.FireDoor:
+            case DoorType.FireDoor: // 불 플레이어 활성화
                 if (col.CompareTag("PlayerFire")) animator.SetBool("IsOpen", true);
                 break;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D col)
+    private void OnTriggerExit2D(Collider2D col) // 문 비활성화
     {
         switch (doorType)
         {
