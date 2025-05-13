@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Description : MonoBehaviour
+public class Description : MonoBehaviour // 튜토리얼 설명 클래스
 {
-    public TextMeshProUGUI description;
-    int playerCount = 0;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public TextMeshProUGUI description; // 튜토리얼 설명
+    int playerCount = 0; // 플레이어 확인
+
+    private void OnTriggerEnter2D(Collider2D collision) // 충돌 물체가 플레이어면 튜토리얼 진행
     {
-        
         if (collision.CompareTag("PlayerIce") || collision.CompareTag("PlayerFire"))
         {
             playerCount++; if (playerCount > 2) playerCount = 2;
@@ -18,11 +18,9 @@ public class Description : MonoBehaviour
                 description.gameObject.SetActive(true);
             }
         }
-        
-        
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) // 플레이어 둘 다 나가면 튜토리얼 중단
     {
         if (collision.CompareTag("PlayerIce") || collision.CompareTag("PlayerFire"))
         {
@@ -36,7 +34,5 @@ public class Description : MonoBehaviour
                 description.gameObject.SetActive(false);
             }
         }
-
-
     }
 }
