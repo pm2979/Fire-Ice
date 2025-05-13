@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7824215217978489250}
   m_Layer: 0
   m_Name: IceTrap
-  m_TagString: Untagged
+  m_TagString: Ice Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

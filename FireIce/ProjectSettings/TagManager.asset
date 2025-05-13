@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PlayerFire
   - PlayerIce
+  - Fire Obstacle
+  - Ice Obstacle
+  - Poison Obstacle
   layers:
   - Default
   - TransparentFX

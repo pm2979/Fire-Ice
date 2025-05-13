@@ -1,0 +1,76 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+
+public enum SoundType
+{
+    BGM,
+    SFX
+}
+
+public class SoundManager : Singleton<SoundManager>
+{
+    /*
+    < 씬 별 사운드 >
+    1. 메인화면
+    1-1. 도전 과제 화면
+    2. 스테이지 선택 화면
+    2-1. 커스텀 화면
+    3. 스테이지 1
+    3-1. 스테이지 2
+    3-2. 스테이지 3
+
+    < 사운드가 필요한 때 >
+    1. 캐릭터 점프
+    2. 캐릭터 죽음 = 게임 오버
+    3. 오브젝트와 상호작용 (레버나 스위치)
+    4. 문 열림
+    5. 게임 클리어
+    */
+
+    [SerializeField] private AudioMixer audioMixer;
+    //사운드 타입의 볼륨 조절
+
+    [SerializeField] private List<AudioClip> audioClipList;
+
+    [HideInInspector]public Dictionary<SoundType, List<SoundPlayer>> soundPlayerDic;
+    //클립 딕셔너리
+
+    public AudioMixer AudioMixer { get { return audioMixer; } }
+
+    private void Awake()
+    {
+        base.Awake();
+        soundPlayerDic = new Dictionary<SoundType, List<SoundPlayer>>();
+    }
+
+    public void SetVolume(SoundType type, float volume)
+    {
+        audioMixer.SetFloat(type.ToString(), Mathf.Log10(volume) * 20);
+    }
+
+    public void PlaySound(SoundType type, string name, bool isLoop = false)
+    {
+        if(type==SoundType.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
+        {
+            return;
+        }
+        GameObject go = Instantiate(new GameObject(), transform);
+        SoundPlayer sp = go.AddComponent<SoundPlayer>();
+        AudioMixerGroup mixerGroup = audioMixer.FindMatchingGroups(type.ToString())[0];
+        AudioClip clip = audioClipList.Find( x => x.name == name );
+
+        sp.Setting(mixerGroup, clip, isLoop);
+        sp.Play();
+
+        if (soundPlayerDic.ContainsKey(type))
+        {
+            soundPlayerDic[type].Add(sp);
+        }
+        else
+        {
+            soundPlayerDic.Add(type, new List<SoundPlayer> { sp });
+        }
+    }
+}
