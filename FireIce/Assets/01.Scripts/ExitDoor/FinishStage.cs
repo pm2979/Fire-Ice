@@ -6,7 +6,6 @@ public class FinishStage : MonoBehaviour
 {
     public void Finish()
     {
-        var scoreMg = FindObjectOfType<ScoreManager>();
-        if (scoreMg != null) scoreMg.Rank();
+        GameManager.Instance.NotifyDoorOpened();
     }
 }
