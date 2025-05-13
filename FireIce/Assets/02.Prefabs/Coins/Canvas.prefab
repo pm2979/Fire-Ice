@@ -885,7 +885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -127, y: -243}
+  m_AnchoredPosition: {x: -127, y: -223}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6836342239028240357
@@ -4105,7 +4105,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 295, y: -235}
+  m_AnchoredPosition: {x: 281, y: -223}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1450495469885108334
@@ -5798,8 +5798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 119, y: -236}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 100, y: -222}
+  m_SizeDelta: {x: 151.2772, y: 142.7311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8235904447301540251
 CanvasRenderer:
@@ -5822,14 +5822,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e0bf8c5cabdcada4d951c6c48022c8df, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6651,8 +6651,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 30f471dc6321c2c43a4ad22ed117e368, type: 3}
   timeCheckIcon: {fileID: 9092148979017967866}
   coinCheckIcon: {fileID: 7807307375408604205}
-  checkSprite: {fileID: 21300000, guid: 48223554b387aab4fae8c29a4d400c60, type: 3}
-  crossSprite: {fileID: 21300000, guid: d55b1de4c45cadb479fdd8f3fde0608b, type: 3}
+  checkSprite: {fileID: 21300000, guid: ef648e0301288d843961a9093984163c, type: 3}
+  crossSprite: {fileID: 21300000, guid: ab1a48d1bc7858d4aaca8cb821adce2e, type: 3}
 --- !u!1 &8668137617912775626
 GameObject:
   m_ObjectHideFlags: 0
