@@ -29,36 +29,48 @@ public class SoundManager : Singleton<SoundManager>
     5. 게임 클리어
     */
 
-    [SerializeField] private AudioMixer mAudioMixer;
+    [SerializeField] private AudioMixer audioMixer;
     //사운드 타입의 볼륨 조절
 
-    private float mCurrentBGMVolume, mCurrentSFXVolume;
-    //현재 배경음악, 효과 사운드 볼륨
+    [SerializeField] private List<AudioClip> audioClipList;
 
-    private Dictionary<string, AudioClip> mClipsDictionary;
+    [HideInInspector]public Dictionary<SoundType, List<SoundPlayer>> soundPlayerDic;
     //클립 딕셔너리
 
-    [SerializeField] private AudioClip[] mPreloadClips;
-    //미리 로드해놓을 클립들 =============================== 필요한가?
+    public AudioMixer AudioMixer { get { return audioMixer; } }
 
-    private List<TemporarySoundPlayer> mInstantiatedSounds;
-
-    private void Start()
+    private void Awake()
     {
-        mClipsDictionary = new Dictionary<string, AudioClip>();
-        //오디오 클립 이름(string), 오디오 클립을 값으로 저장하는 딕셔너리
-        foreach(AudioClip clip in mPreloadClips)
-        //mPreloadClips : Unity 에디터에서 미리 저장해두는 오디오 클립 배열
-        {
-            mClipsDictionary.Add(clip.name, clip);
-            //clip.name을 키로, clip을 값으로 받음
-        }
-        mInstantiatedSounds = new List<TemporarySoundPlayer>();
-        //
+        base.Awake();
+        soundPlayerDic = new Dictionary<SoundType, List<SoundPlayer>>();
     }
-}
 
-public class TemporarySoundPlayer : MonoBehaviour
-{
+    public void SetVolume(SoundType type, float volume)
+    {
+        audioMixer.SetFloat(type.ToString(), Mathf.Log10(volume) * 20);
+    }
 
+    public void PlaySound(SoundType type, string name, bool isLoop = false)
+    {
+        if(type==SoundType.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
+        {
+            return;
+        }
+        GameObject go = Instantiate(new GameObject(), transform);
+        SoundPlayer sp = go.AddComponent<SoundPlayer>();
+        AudioMixerGroup mixerGroup = audioMixer.FindMatchingGroups(type.ToString())[0];
+        AudioClip clip = audioClipList.Find( x => x.name == name );
+
+        sp.Setting(mixerGroup, clip, isLoop);
+        sp.Play();
+
+        if (soundPlayerDic.ContainsKey(type))
+        {
+            soundPlayerDic[type].Add(sp);
+        }
+        else
+        {
+            soundPlayerDic.Add(type, new List<SoundPlayer> { sp });
+        }
+    }
 }
