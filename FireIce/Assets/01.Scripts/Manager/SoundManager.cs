@@ -20,10 +20,12 @@ public class SoundManager : Singleton<SoundManager>
     [HideInInspector]public Dictionary<SoundType, List<SoundPlayer>> soundPlayerDic;
     //재생 중인 SoundPlayer을 보관
 
+    private string currentBGM = ""; //현재 BGM 저장
+
     public AudioMixer AudioMixer { get { return audioMixer; } }
     //외부에서 오디오 믹서 접근 허용
 
-    private new void Awake()
+    protected override void Awake()
     {
         base.Awake();
         soundPlayerDic = new Dictionary<SoundType, List<SoundPlayer>>();
@@ -59,6 +61,30 @@ public class SoundManager : Singleton<SoundManager>
         {
             soundPlayerDic.Add(type, new List<SoundPlayer> { sp });
         }
+    }
+
+    public void ChangeBGM(string newBGM)
+    {
+        if (currentBGM == newBGM)
+        {
+            return;
+        }
+
+        stopBGM();
+        PlaySound(SoundType.BGM, newBGM, true);
+        currentBGM = newBGM;
+    }
+
+    public void stopBGM()
+    {
+        if (soundPlayerDic.ContainsKey(SoundType.BGM) && soundPlayerDic[SoundType.BGM].Count > 0)
+        {
+            foreach (var sp in soundPlayerDic[SoundType.BGM])
+            {
+                sp.AudioSource.Stop();
+            }
+            soundPlayerDic[SoundType.BGM].Clear();
+        }  
     }
 }
 

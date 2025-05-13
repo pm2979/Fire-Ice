@@ -22,7 +22,7 @@ public class ExitDoor : MonoBehaviour
                 if (col.CompareTag("PlayerIce")) icePlayerEntered=true;
                 if (col.CompareTag("PlayerFire")) firePlayerEntered=true;
                 if (firePlayerEntered && icePlayerEntered) animator.SetBool("IsOpen", true);
-                if(firePlayerEntered && icePlayerEntered) SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
+                //if(firePlayerEntered && icePlayerEntered) SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
                 break;
             case DoorType.IceDoor:
                 if (col.CompareTag("PlayerIce")) animator.SetBool("IsOpen", true);
