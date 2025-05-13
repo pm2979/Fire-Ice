@@ -51,11 +51,9 @@ public class GameManager : Singleton<GameManager>
         // 모든 문이 열렸다면 한 번만 실행
         if (openDoor >= totalDoor)
         {
-            SoundManager.Instance.PlaySound(SoundType.SFX, "08_human_charge_2");
             var scoreMg = FindObjectOfType<ScoreManager>();
             if (scoreMg != null)
                 scoreMg.Rank();
-
         }
     }
 
