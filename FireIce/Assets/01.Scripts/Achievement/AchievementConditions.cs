@@ -19,14 +19,14 @@ public class AchievementConditions : MonoBehaviour
     {
         scoreManager = FindObjectOfType<ScoreManager>();
         deathCount = 0;
-
+        achievementList = FindObjectOfType<AchievementList>();
     }
 
-    public void CheckNoDeathClear()
+    public void CheckNoDeathClear() // 업적 클리어 확인
     {
         if(deathCount == 0)
         {
-            achievementList = FindObjectOfType<AchievementList>();
+            
             deathCount = 0;
             achievementList.achievements[0].isCompleted = true;
         }
@@ -43,30 +43,25 @@ public class AchievementConditions : MonoBehaviour
         ScoreManager.OnStageCleared -= HandleStageClear;
     }
 
-    public void HandleStageClear(GRADE grade)
+    public void HandleStageClear(GRADE grade) // 업적 클리어 확인
     {
-        Debug.Log("핸들스테이지클");
         if (grade == GRADE.A)
         {
-            Debug.Log("A 클");
             achievementList.achievements[1].isCompleted = true;
         }
         AchievementAllClear();
     }
 
-    public void AchievementAllClear()
+    public void AchievementAllClear() // 업적 클리어 확인
     {
-        
         for (int i = 0; i<achievementList.achievements.Count-1; i++)
         {
             if (achievementList.achievements[i].isCompleted == true)
             {
                 achievementList.achievements[achievementList.achievements.Count - 1].isCompleted = true;
-                Debug.Log("업적올클");
                 break;
             }
         }
-        
 
     }
 }

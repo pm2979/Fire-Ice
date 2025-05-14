@@ -55,16 +55,22 @@ public class GameManager : Singleton<GameManager>
 
     public void NotifyDoorOpened()
     {
-        var achvcond = FindObjectOfType<AchievementConditions>();
-        achvcond.CheckNoDeathClear();
+        
+        
         
         openDoor++;
         // 모든 문이 열렸다면 한 번만 실행
         if (openDoor >= totalDoor)
         {
+            var achvcond = FindObjectOfType<AchievementConditions>();
             var scoreMg = FindObjectOfType<ScoreManager>();
-            if (scoreMg != null)
+            if (scoreMg != null&&achvcond != null)
+            {
                 scoreMg.Rank();
+                achvcond.CheckNoDeathClear();
+            }
+                
+            
         }
     }
 }
