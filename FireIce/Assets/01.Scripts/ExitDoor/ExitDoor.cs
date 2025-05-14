@@ -42,7 +42,7 @@ public class ExitDoor : MonoBehaviour
                     animator.SetBool("IsOpen", true);
                     SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
                 }
-                    break;
+                break;
         }
     }
 
