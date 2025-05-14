@@ -27,8 +27,6 @@ public class AchievementUI : MonoBehaviour
                 onCheck[i].SetActive(true);
             }
         }
-
-
     }
 
     public void ShowAchievementInfo(int index)

@@ -23,8 +23,6 @@ public class ScoreManager : MonoBehaviour
     int fireTotal, iceTotal;
     int fireCollected = 0, iceCollected = 0;
     public static event Action<GRADE> OnStageCleared;
-
-
     private void Start()
     {
         // 씬에 있는 모든 Coin 오브젝트를 찾아서 총 목표치 계산

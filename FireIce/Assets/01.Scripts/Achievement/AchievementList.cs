@@ -11,10 +11,6 @@ public class AchievementList : MonoBehaviour
 
     public List<Achievement> achievements = new List<Achievement>(); // 업적 목록
 
-    private void Awake()
-    {
-
-    }
     private void Start()
     {
         if (Instance == null)
