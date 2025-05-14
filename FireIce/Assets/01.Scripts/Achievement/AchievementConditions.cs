@@ -45,10 +45,8 @@ public class AchievementConditions : MonoBehaviour
 
     public void HandleStageClear(GRADE grade)
     {
-        Debug.Log("핸들스테이지클");
         if (grade == GRADE.A)
         {
-            Debug.Log("A 클");
             achievementList.achievements[1].isCompleted = true;
         }
         AchievementAllClear();
@@ -62,7 +60,6 @@ public class AchievementConditions : MonoBehaviour
             if (achievementList.achievements[i].isCompleted == true)
             {
                 achievementList.achievements[achievementList.achievements.Count - 1].isCompleted = true;
-                Debug.Log("업적올클");
                 break;
             }
         }
