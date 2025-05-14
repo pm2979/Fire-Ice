@@ -25,7 +25,7 @@ public enum DOORTYPE {
     ICEDOOR 
 }
 
-public enum SoundType
+public enum SOUNDTYPE
 {
     BGM,
     SFX
