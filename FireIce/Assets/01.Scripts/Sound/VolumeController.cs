@@ -5,18 +5,13 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VolumeController : Singleton<VolumeController>
+public class VolumeController : MonoBehaviour 
 {
     [SerializeField] private GameObject volumePanel;
     [SerializeField] private Button volumeButton;
     [SerializeField] private Button backgroundBlockButton;
 
     private bool inVisible = false;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
 
     private void Start()
     {

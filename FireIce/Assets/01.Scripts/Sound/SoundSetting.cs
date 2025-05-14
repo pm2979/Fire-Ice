@@ -4,15 +4,10 @@ using UnityEditor.Experimental.RestService;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundSetting : Singleton<SoundSetting>
+public class SoundSetting : MonoBehaviour
 {
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
 
     private void Start()
     {
