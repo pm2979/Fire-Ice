@@ -96,6 +96,12 @@ public class StageUIController : MonoBehaviour
         SceneManager.LoadScene(1);
         SoundManager.Instance.PlaySound(SoundType.BGM, "Goblins_Den_(Regular)");
     }
+    //타이틀로 돌아가기
+    public void OnGoToTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
     //게임 종료(Esc)
     public void OnExitGameBtn()
     {
