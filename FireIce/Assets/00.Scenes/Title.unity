@@ -616,6 +616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundSetting
       objectReference: {fileID: 0}
+    - target: {fileID: 718163332249263433, guid: d9dc4459cc1c0c348a5daf759ed1ac44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7254404185341399602, guid: d9dc4459cc1c0c348a5daf759ed1ac44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -983,6 +987,10 @@ PrefabInstance:
     - target: {fileID: 565161407634969581, guid: d6afdf30ccddcb24395291210b2f91c3, type: 3}
       propertyPath: m_Name
       value: VolumeSetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 565161407634969581, guid: d6afdf30ccddcb24395291210b2f91c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490416132547594210, guid: d6afdf30ccddcb24395291210b2f91c3, type: 3}
       propertyPath: volumePanel
@@ -1903,23 +1911,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 361816682922126419, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 361816682922126419, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 361816682922126419, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1916811726224033225, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1916811726224033225, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5469521845246768131, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_Pivot.x
@@ -2003,15 +2011,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089834940576961287, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6089834940576961287, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6089834940576961287, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723696951614696596, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2025,17 +2033,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Volume
       objectReference: {fileID: 0}
+    - target: {fileID: 6886422719531980837, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7029829778920171476, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7534350227216534415, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7534350227216534415, guid: 231546d4fb4df1346b476c8ea6bc7ce0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2050,10 +2062,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 769403177}
+  - {fileID: 2025188827}
   - {fileID: 948980605}
   - {fileID: 882687760}
   - {fileID: 1633214477}
   - {fileID: 537191073}
   - {fileID: 908402745}
-  - {fileID: 2025188827}
   - {fileID: 419266617}

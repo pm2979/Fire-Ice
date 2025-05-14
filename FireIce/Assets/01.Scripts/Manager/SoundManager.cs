@@ -35,8 +35,13 @@ public class SoundManager : Singleton<SoundManager>
         audioMixer.SetFloat(type.ToString(), Mathf.Log10(volume) * 20);
     }
 
-    public void PlaySound(SoundType type, string name, bool isLoop = false) //사운드 재생
+    public void PlaySound(SoundType type, string name, bool isLoop = true) //사운드 재생
     {
+        if(type == SoundType.SFX)
+        {
+            isLoop = false;
+        }
+
         if (type == SoundType.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
         {
             Debug.Log("노래 재생 중");
