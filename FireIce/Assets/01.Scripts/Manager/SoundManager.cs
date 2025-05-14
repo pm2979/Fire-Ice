@@ -2,12 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum SoundType
-{
-    BGM,
-    SFX
-}
-
 public class SoundManager : Singleton<SoundManager>
 {
     [SerializeField] private AudioMixer audioMixer;

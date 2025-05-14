@@ -24,6 +24,13 @@ public enum DOORTYPE {
     FIREDOOR, 
     ICEDOOR 
 }
+
+public enum SoundType
+{
+    BGM,
+    SFX
+}
+
 /* 제출 전 삭제 가능성
 public enum TRAPTYPE 
 { 
