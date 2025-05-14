@@ -10,7 +10,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private List<AudioClip> audioClipList;
     //사용할 오디오 클립 보관
 
-    [HideInInspector]public Dictionary<SoundType, List<SoundPlayer>> soundPlayerDic;
+    [HideInInspector]public Dictionary<SOUNDTYPE, List<SoundPlayer>> soundPlayerDic;
     //재생 중인 SoundPlayer을 보관
 
     public AudioMixer AudioMixer { get { return audioMixer; } }
@@ -19,24 +19,24 @@ public class SoundManager : Singleton<SoundManager>
     protected override void Awake()
     {
         base.Awake();
-        soundPlayerDic = new Dictionary<SoundType, List<SoundPlayer>>();
+        soundPlayerDic = new Dictionary<SOUNDTYPE, List<SoundPlayer>>();
         //딕셔너리 초기화
-        SoundManager.Instance.PlaySound(SoundType.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
     }
 
-    public void SetVolume(SoundType type, float volume) //볼륨 조절
+    public void SetVolume(SOUNDTYPE type, float volume) //볼륨 조절
     {
         audioMixer.SetFloat(type.ToString(), Mathf.Log10(volume) * 20);
     }
 
-    public void PlaySound(SoundType type, string name, bool isLoop = true) //사운드 재생
+    public void PlaySound(SOUNDTYPE type, string name, bool isLoop = true) //사운드 재생
     {
-        if(type == SoundType.SFX)
+        if(type == SOUNDTYPE.SFX)
         {
             isLoop = false;
         }
 
-        if (type == SoundType.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
+        if (type == SOUNDTYPE.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
         {
             Debug.Log("노래 재생 중");
             if (soundPlayerDic[type][0].AudioSourceComp.clip.name == name)

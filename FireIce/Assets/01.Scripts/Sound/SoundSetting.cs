@@ -26,20 +26,20 @@ public class SoundSetting : Singleton<SoundSetting>
         sfxSlider.onValueChanged.AddListener(OnSFXChanged);
         //Slider 변경 시 호출
 
-        SoundManager.Instance.SetVolume(SoundType.BGM, saveBGM); //불러온 값으로 적용
-        SoundManager.Instance.SetVolume(SoundType.SFX, saveSFX);
+        SoundManager.Instance.SetVolume(SOUNDTYPE.BGM, saveBGM); //불러온 값으로 적용
+        SoundManager.Instance.SetVolume(SOUNDTYPE.SFX, saveSFX);
     }
 
     private void OnBGMChanged(float value) //BGM 변경 시 호출
     {
-        SoundManager.Instance.SetVolume(SoundType.BGM, value);
+        SoundManager.Instance.SetVolume(SOUNDTYPE.BGM, value);
         PlayerPrefs.SetFloat("BGMVolume", value); //BGM 볼륨값 저장
         PlayerPrefs.Save();
     }
 
     private void OnSFXChanged(float value) //SFX 변경 시 호출
     {
-        SoundManager.Instance.SetVolume(SoundType.SFX, value);
+        SoundManager.Instance.SetVolume(SOUNDTYPE.SFX, value);
         PlayerPrefs.SetFloat("SFXVolume", value); //SFX 볼륨값 저장
         PlayerPrefs.Save();
     }

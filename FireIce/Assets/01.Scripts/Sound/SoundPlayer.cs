@@ -35,7 +35,7 @@ public class SoundPlayer : MonoBehaviour
         yield return new WaitForSeconds(time * 5);
 
         string typeName = audioSource.outputAudioMixerGroup.ToString();
-        SoundManager.Instance.soundPlayerDic[(SoundType)Enum.Parse(typeof(SoundType), typeName)].Remove(this);
+        SoundManager.Instance.soundPlayerDic[(SOUNDTYPE)Enum.Parse(typeof(SOUNDTYPE), typeName)].Remove(this);
 
         Destroy(gameObject);
     }

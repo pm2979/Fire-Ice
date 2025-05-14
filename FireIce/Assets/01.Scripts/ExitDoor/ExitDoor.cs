@@ -26,21 +26,21 @@ public class ExitDoor : MonoBehaviour
                 if (firePlayerEntered && icePlayerEntered)
                 {
                     animator.SetBool("IsOpen", true);
-                    SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
+                    SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, "05_door_open_1");
                 }
                 break;
             case DOORTYPE.ICEDOOR: // 얼음 플레이어 활성화
                 if (col.CompareTag("PlayerIce"))
                 {
                     animator.SetBool("IsOpen", true);
-                    SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
+                    SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, "05_door_open_1");
                 }
                 break;
             case DOORTYPE.FIREDOOR: // 불 플레이어 활성화
                 if (col.CompareTag("PlayerFire"))
                 {
                     animator.SetBool("IsOpen", true);
-                    SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
+                    SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, "05_door_open_1");
                 }
                 break;
         }
