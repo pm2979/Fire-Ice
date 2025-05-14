@@ -2271,7 +2271,7 @@ Transform:
   m_GameObject: {fileID: 1105797859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 30.96, y: 11.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5037,6 +5037,18 @@ PrefabInstance:
       value: FirePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7716609580192145368, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: jumpKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716609580192145368, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: leftKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716609580192145368, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
+      propertyPath: rightKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716609580192145368, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
       propertyPath: groundCheckDistance
       value: 0.1
       objectReference: {fileID: 0}
@@ -5812,6 +5824,18 @@ PrefabInstance:
     - target: {fileID: 7786891838220688426, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
       propertyPath: m_Name
       value: IcePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493120274388913474, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
+      propertyPath: jumpKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493120274388913474, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
+      propertyPath: leftKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493120274388913474, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
+      propertyPath: rightKey
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8493120274388913474, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
       propertyPath: groundCheckDistance

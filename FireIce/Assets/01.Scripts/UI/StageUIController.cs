@@ -16,6 +16,9 @@ public class StageUIController : MonoBehaviour
     public GameObject gameoverUI;
     public GameObject escapeUI;
 
+    [Header("최종 등급 애니메이션")]
+    [SerializeField] private Animator gradeAnim;
+
     [Header("등급 표시용 UI")]
     [SerializeField] private Image gradeImage;
     [SerializeField] private Sprite[] gradeSprites;// A,B,C 
@@ -48,6 +51,7 @@ public class StageUIController : MonoBehaviour
         gradeImage.sprite = gradeSprites[(int)result.Grade];
         timeCheckIcon.sprite = result.TimeSuccess ? checkSprite : crossSprite;
         coinCheckIcon.sprite = result.CoinSuccess ? checkSprite : crossSprite;
+        gradeAnim.SetTrigger("ShowGrade");
         Time.timeScale = 0f;
     }
 
