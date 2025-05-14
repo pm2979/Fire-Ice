@@ -6,12 +6,12 @@ public class Fan : MonoBehaviour, IObstacleActive
 {
     [field: SerializeField] public bool IsActive { get; set; } = false;
 
-    [SerializeField] private float upPower = 10.5f; // 떠오르는 힘
+    [SerializeField] private float upPower = 2f; // 떠오르는 힘
     [SerializeField] private ParticleSystem windParticle;
 
     private void Start()
     {
-        // 시작 파티클
+        // 시작 파티클 On Off
         if (IsActive == true) windParticle.Play();
         else windParticle.Stop();
     }
@@ -27,7 +27,6 @@ public class Fan : MonoBehaviour, IObstacleActive
         IsActive = false;
         windParticle.Stop();
     }
-
 
     private void OnTriggerStay2D(Collider2D col)
     {

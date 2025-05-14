@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     private StageUIController uIController;
     private int totalDoor;
     private int openDoor;
+
     protected override void Awake()
     {
         base.Awake();
@@ -22,6 +23,7 @@ public class GameManager : Singleton<GameManager>
         openDoor = 0;
         uIController = FindObjectOfType<StageUIController>();
     }
+
     private void Update()
     {
         if(uIController != null)
@@ -29,6 +31,7 @@ public class GameManager : Singleton<GameManager>
             ESC();
         }
     }
+
     private void ESC()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -36,6 +39,7 @@ public class GameManager : Singleton<GameManager>
             uIController.OnEscape();
         }
     }
+
     public void GameOverUI()
     {
         if(uIController != null)
@@ -55,6 +59,4 @@ public class GameManager : Singleton<GameManager>
                 scoreMg.Rank();
         }
     }
-
-
 }
