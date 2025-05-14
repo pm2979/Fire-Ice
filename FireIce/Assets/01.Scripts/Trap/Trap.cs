@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    /*
     public TRAPTYPE trapType;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,5 +38,6 @@ public class Trap : MonoBehaviour
     {
         //GameManager.Instance.GameOverUI();
     }
+    */
 }
 

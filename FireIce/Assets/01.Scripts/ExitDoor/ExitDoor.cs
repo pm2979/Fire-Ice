@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DoorType { Normal, FireDoor, IceDoor }
+
 public class ExitDoor : MonoBehaviour
 {
     private Animator animator;
-    public DoorType doorType; // 문 타입 결정
+    public DOORTYPE doorType; // 문 타입 결정
 
     private bool firePlayerEntered = false;
     private bool icePlayerEntered = false;
@@ -20,7 +20,7 @@ public class ExitDoor : MonoBehaviour
     {
         switch (doorType)
         {
-            case DoorType.Normal: // 플레이어 둘 다 있어야 활성화
+            case DOORTYPE.NORMAL: // 플레이어 둘 다 있어야 활성화
                 if (col.CompareTag("PlayerIce")) icePlayerEntered=true;
                 if (col.CompareTag("PlayerFire")) firePlayerEntered=true;
                 if (firePlayerEntered && icePlayerEntered)
@@ -29,14 +29,14 @@ public class ExitDoor : MonoBehaviour
                     SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
                 }
                 break;
-            case DoorType.IceDoor: // 얼음 플레이어 활성화
+            case DOORTYPE.ICEDOOR: // 얼음 플레이어 활성화
                 if (col.CompareTag("PlayerIce"))
                 {
                     animator.SetBool("IsOpen", true);
                     SoundManager.Instance.PlaySound(SoundType.SFX, "05_door_open_1");
                 }
                 break;
-            case DoorType.FireDoor: // 불 플레이어 활성화
+            case DOORTYPE.FIREDOOR: // 불 플레이어 활성화
                 if (col.CompareTag("PlayerFire"))
                 {
                     animator.SetBool("IsOpen", true);
@@ -50,15 +50,15 @@ public class ExitDoor : MonoBehaviour
     {
         switch (doorType)
         {
-            case DoorType.Normal:
+            case DOORTYPE.NORMAL:
                 if (col.CompareTag("PlayerIce")) icePlayerEntered = false;
                 if (col.CompareTag("PlayerFire")) firePlayerEntered = false;
                 if (!firePlayerEntered || !icePlayerEntered) animator.SetBool("IsOpen", false);
                 break;
-            case DoorType.IceDoor:
+            case DOORTYPE.ICEDOOR:
                 if (col.CompareTag("PlayerIce")) animator.SetBool("IsOpen", false);
                 break;
-            case DoorType.FireDoor:
+            case DOORTYPE.FIREDOOR:
                 if (col.CompareTag("PlayerFire")) animator.SetBool("IsOpen", false);
                 break;
         }
