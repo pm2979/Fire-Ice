@@ -61,7 +61,6 @@ public class AchievementConditions : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("업적올클");
         achievementList.achievements[achievementList.achievements.Count - 1].isCompleted = true;
     }
 }
