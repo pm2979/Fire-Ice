@@ -5183,6 +5183,7 @@ GameObject:
   - component: {fileID: 2289957636552302651}
   - component: {fileID: 3710895723776939876}
   - component: {fileID: 1956622420941019104}
+  - component: {fileID: 3608278741151918433}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -5325,6 +5326,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &3608278741151918433
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880520174115083992}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7138460502645610540
 GameObject:
   m_ObjectHideFlags: 0
