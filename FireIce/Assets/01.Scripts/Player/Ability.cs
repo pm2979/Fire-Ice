@@ -1,12 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
-using UnityEditor.Playables;
 using UnityEngine;
-using UnityEngine.UIElements;
-
 
 public abstract class Ability : MonoBehaviour
 {
@@ -21,7 +13,7 @@ public abstract class Ability : MonoBehaviour
     {
         if (InputKeyAbility() && frozenTarget != null) //아래 키를 입력받고 frozenTarget이 있다면,
         {
-            Interact((frozenTarget as MonoBehaviour).gameObject); //Interart()에 frozenTarget을 전달
+            HandleIFrozen(frozenTarget);
         }
     }
 
@@ -31,11 +23,7 @@ public abstract class Ability : MonoBehaviour
     {
         string targetTag = target.tag; //태그를 가져와서,
 
-        if (target.TryGetComponent<IFrozen>(out var data)) //IFrozen을 가지고 있는지 확인
-        {
-            HandleIFrozen(data);
-        }
-        else if(targetTag == poisonTag) //독에 빠지면 게임오버
+        if(targetTag == poisonTag) //독에 빠지면 게임오버
         {
             GameOver();
         }
@@ -51,46 +39,26 @@ public abstract class Ability : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //충돌이 시작될 때 실행
     {
-        HandleCollisionEnter(collision.gameObject);
+        Interact(collision.gameObject); //Interact로 처리
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) //충돌이 시작될 때 실행
+    private void OnCollisionStay2D(Collision2D collision) //충돌이 시작될 때 실행
     {
-        HandleCollisionEnter(collision.collider.gameObject);
-    }
-
-    private void HandleCollisionEnter(GameObject collidedObject)
-    {
-        if (collidedObject.TryGetComponent<IFrozen>(out var frozen)) //충돌한 오브젝트에서 frozen을 찾음
+        if (collision.gameObject.GetComponent<IFrozen>() != null) //충돌한 오브젝트에서 frozen을 찾음
         {
-            frozenTarget = frozen; //frozenTarget에 저장
+            frozenTarget = collision.gameObject.GetComponent<IFrozen>(); //frozenTarget에 저장
         }
-        else
-        {
-            Interact(collidedObject); //Interact로 처리
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) //충돌이 끝날 때 실행
-    {
-         HandlecollisionExit(collision.gameObject);        
     }
 
     private void OnCollisionExit2D(Collision2D collision) //충돌이 끝날 때 실행
     {
-         HandlecollisionExit(collision.gameObject);
-    }
-
-    private void HandlecollisionExit(GameObject exitedObject)
-    {
-        if(exitedObject.TryGetComponent<IFrozen>(out var frozen) && frozen == frozenTarget) // //충돌이 끝난 오브젝트가 frozenTarget이면
-        {
-            frozenTarget = null; //null로 초기화
-        }
+        if(frozenTarget != null)
+            frozenTarget = null;
     }
 
     public void GameOver()
     {
+        SoundManager.Instance.PlaySound(SoundType.SFX, "21_orc_damage_3");
         GameManager.Instance.GameOverUI();
         //AchievementConditions.deathCount++;
         Debug.Log("게임 오버!");

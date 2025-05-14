@@ -16,6 +16,9 @@ public class StageUIController : MonoBehaviour
     public GameObject gameoverUI;
     public GameObject escapeUI;
 
+    [Header("최종 등급 애니메이션")]
+    [SerializeField] private Animator gradeAnim;
+
     [Header("등급 표시용 UI")]
     [SerializeField] private Image gradeImage;
     [SerializeField] private Sprite[] gradeSprites;// A,B,C 
@@ -48,6 +51,7 @@ public class StageUIController : MonoBehaviour
         gradeImage.sprite = gradeSprites[(int)result.Grade];
         timeCheckIcon.sprite = result.TimeSuccess ? checkSprite : crossSprite;
         coinCheckIcon.sprite = result.CoinSuccess ? checkSprite : crossSprite;
+        gradeAnim.SetTrigger("ShowGrade");
         Time.timeScale = 0f;
     }
 
@@ -59,6 +63,8 @@ public class StageUIController : MonoBehaviour
     }
     public void OnEscape()
     {
+        if (pauseUI.activeSelf || clearUI.activeSelf || gameoverUI.activeSelf)
+            return;
         escapeUI.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -81,6 +87,14 @@ public class StageUIController : MonoBehaviour
     public void OnReplayBtn()
     {
         Time.timeScale = 1f;
+        BaseController[] controllers = FindObjectsOfType<BaseController>();
+
+        // 하나씩 돌면서 해당 컴포넌트가 붙은 게임오브젝트를 파괴
+        foreach (BaseController ctrl in controllers)
+        {
+            Destroy(ctrl.gameObject);
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //스테이지 선택씬으로 이동
@@ -88,6 +102,13 @@ public class StageUIController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
+        SoundManager.Instance.PlaySound(SoundType.BGM, "Goblins_Den_(Regular)");
+    }
+    //타이틀로 돌아가기
+    public void OnGoToTitle()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
     //게임 종료(Esc)
     public void OnExitGameBtn()

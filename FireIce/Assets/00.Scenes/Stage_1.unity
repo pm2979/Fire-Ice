@@ -2943,6 +2943,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5437859702570783239, guid: 89bff679e066be24c8d91acb76912bdd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5890567845438806802, guid: 89bff679e066be24c8d91acb76912bdd, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -5094,10 +5098,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirePlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 7716609580192145368, guid: 89c5e2ebb2780994e81e2cfa74314f35, type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5829,7 +5829,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5148206204455808424, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.74
+      value: -15.57
       objectReference: {fileID: 0}
     - target: {fileID: 5148206204455808424, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5870,10 +5870,6 @@ PrefabInstance:
     - target: {fileID: 7786891838220688426, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
       propertyPath: m_Name
       value: IcePlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493120274388913474, guid: 51d096d3788e2c4468b202d1b66d23fd, type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

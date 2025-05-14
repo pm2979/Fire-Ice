@@ -17,7 +17,7 @@ public class Switch : MonoBehaviour ,IFrozen
     {
         if (IsFrozen) return;
 
-        //SoundManager.Instance.PlaySound(SoundType.SFX, "01_chest_open_1");
+        SoundManager.Instance.PlaySound(SoundType.SFX, "01_chest_open_1");
         
         for (int i = 0; i < ObstacleObj.Length; i++)
         {
