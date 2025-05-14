@@ -83,10 +83,12 @@ public class MovingPlatform : MonoBehaviour, IObstacleActive, IFrozen
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (col.gameObject.layer != LayerMask.NameToLayer("Player")) return;
+
             col.transform.SetParent(null);
 
     }
+
     //private void OnCollisionExit2D(Collision2D col)
     //{
     //    if (col.collider.CompareTag("Player"))
