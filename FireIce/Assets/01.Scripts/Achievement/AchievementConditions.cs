@@ -56,12 +56,11 @@ public class AchievementConditions : MonoBehaviour
     {
         for (int i = 0; i<achievementList.achievements.Count-1; i++)
         {
-            if (achievementList.achievements[i].isCompleted == true)
+            if (!achievementList.achievements[i].isCompleted)
             {
-                achievementList.achievements[achievementList.achievements.Count - 1].isCompleted = true;
-                break;
+                return;
             }
         }
-
+        achievementList.achievements[achievementList.achievements.Count - 1].isCompleted = true;
     }
 }
