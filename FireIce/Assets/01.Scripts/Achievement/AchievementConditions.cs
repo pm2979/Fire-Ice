@@ -19,13 +19,14 @@ public class AchievementConditions : MonoBehaviour
     {
         scoreManager = FindObjectOfType<ScoreManager>();
         deathCount = 0;
+        achievementList = FindObjectOfType<AchievementList>();
     }
 
     public void CheckNoDeathClear() // 업적 클리어 확인
     {
         if(deathCount == 0)
         {
-            achievementList = FindObjectOfType<AchievementList>();
+            
             deathCount = 0;
             achievementList.achievements[0].isCompleted = true;
         }
