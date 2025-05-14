@@ -87,6 +87,14 @@ public class StageUIController : MonoBehaviour
     public void OnReplayBtn()
     {
         Time.timeScale = 1f;
+        BaseController[] controllers = FindObjectsOfType<BaseController>();
+
+        // 하나씩 돌면서 해당 컴포넌트가 붙은 게임오브젝트를 파괴
+        foreach (BaseController ctrl in controllers)
+        {
+            Destroy(ctrl.gameObject);
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //스테이지 선택씬으로 이동
