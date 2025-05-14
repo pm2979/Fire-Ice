@@ -7,7 +7,7 @@ public abstract class Ability : MonoBehaviour
     public const string poisonTag = "Poison Obstacle"; //독 Tag
 
     protected IFrozen frozenTarget = null; //플레이어와 충돌한 오브젝트가 IFrozen을 가지고 있을 때 충돌한 오브젝트를 저장할 변수
-    [SerializeField] GameObject obj;
+
     private void Update()
     {
         if (InputKeyAbility() && frozenTarget != null) //아래 키를 입력받고 frozenTarget이 있다면,
