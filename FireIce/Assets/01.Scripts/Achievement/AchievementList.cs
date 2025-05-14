@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AchievementList : MonoBehaviour
 {
@@ -20,12 +21,29 @@ public class AchievementList : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
+            SceneManager.sceneLoaded += OnSceneLoaded; //씬 바뀔때마다 호출
+        }
+        else
+        {
+            Destroy(gameObject);
         }
 
         AddAchievement("무사 탈출", "한 번도 죽지 않고 스테이지를 클리어 하세요.", 0f, false);
-        AddAchievement("123", "1234", 0f, false);
-        AddAchievement("14", "135", 0f, false);
+        AddAchievement("A랭크 클리어", "A랭크로 클리어 하세요.", 0f, false);
+        AddAchievement("업적마스터", "모든 업적 클리어.", 0f, false);
 
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 같은 이름을 가진 오브젝트 제거
+        GameObject[] duplicates = GameObject.FindGameObjectsWithTag("Achievement");
+        foreach (GameObject obj in duplicates)
+        {
+            if (obj != this.gameObject)
+            {
+                Destroy(obj);
+            }
+        }
     }
 
     // 업적 추가

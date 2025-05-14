@@ -9,6 +9,8 @@ TagManager:
   - Fire Obstacle
   - Ice Obstacle
   - Poison Obstacle
+  - Achievement
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,6 @@ public class AchievementUI : MonoBehaviour
             AchieveNames[i].text = achievementList.achievements[i].name;
             if (achievementList.achievements[i].isCompleted == true)
             {
-                Debug.Log($"{achievementList.achievements[i].name}¿Ï");
                 onCheck[i].SetActive(true);
             }
         }

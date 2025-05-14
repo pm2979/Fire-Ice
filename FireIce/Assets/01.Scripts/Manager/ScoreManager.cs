@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class ScoreManager : MonoBehaviour
 
     int fireTotal, iceTotal;
     int fireCollected = 0, iceCollected = 0;
+    public static event Action<GRADE> OnStageCleared;
 
 
     private void Start()
@@ -107,5 +109,6 @@ public class ScoreManager : MonoBehaviour
         var rankResult = new StageUIController.RankResult(result, timeOK, fireOK && iceOK);
         stageUI.ShowClearUI(rankResult);
         Debug.Log($"최종 등급: {result}");
+        OnStageCleared?.Invoke(result);
     }
 }
