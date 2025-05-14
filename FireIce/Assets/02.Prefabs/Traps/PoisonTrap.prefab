@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7667390950414235592}
   - component: {fileID: 4333470497776860375}
-  - component: {fileID: 7639895166928876754}
   - component: {fileID: 730794643438067980}
   m_Layer: 0
   m_Name: PoisonTrap
@@ -86,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7639895166928876754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8299533742246524697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff37a345ef431a4c96e0df9c997fdc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapType: 2
 --- !u!61 &730794643438067980
 BoxCollider2D:
   m_ObjectHideFlags: 0
