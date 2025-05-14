@@ -48,7 +48,7 @@ public class StageUIController : MonoBehaviour
     public void ShowClearUI(RankResult result)
     {
         clearUI.SetActive(true);
-        SoundManager.Instance.PlaySound(SoundType.SFX, "08_human_charge_2");
+        SoundManager.Instance.PlaySound(SoundType.SFX, "match");
         gradeImage.sprite = gradeSprites[(int)result.Grade];
         timeCheckIcon.sprite = result.TimeSuccess ? checkSprite : crossSprite;
         coinCheckIcon.sprite = result.CoinSuccess ? checkSprite : crossSprite;
