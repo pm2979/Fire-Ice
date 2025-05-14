@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             uIController.OnEscape();
-            Debug.Log("Esc Å° ´©¸§");
         }
     }
     public void GameOverUI()

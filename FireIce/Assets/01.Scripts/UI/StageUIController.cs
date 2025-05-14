@@ -63,6 +63,8 @@ public class StageUIController : MonoBehaviour
     }
     public void OnEscape()
     {
+        if (pauseUI.activeSelf || clearUI.activeSelf || gameoverUI.activeSelf)
+            return;
         escapeUI.SetActive(true);
         Time.timeScale = 0f;
     }
