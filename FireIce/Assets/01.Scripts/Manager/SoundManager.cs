@@ -21,7 +21,7 @@ public class SoundManager : Singleton<SoundManager>
         base.Awake();
         soundPlayerDic = new Dictionary<SOUNDTYPE, List<SoundPlayer>>();
         //µñ¼Å³Ê¸® ÃÊ±âÈ­
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
 
     public void SetVolume(SOUNDTYPE type, float volume) //º¼·ý Á¶Àý

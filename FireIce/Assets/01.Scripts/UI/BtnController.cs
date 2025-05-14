@@ -10,7 +10,7 @@ public class BtnController : MonoBehaviour
     public void OnStartBtn()
     {
         SceneManager.LoadScene(1);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
 
     public void OnAchievement()
@@ -55,17 +55,17 @@ public class BtnController : MonoBehaviour
     public void OnCostume()
     {
         SceneManager.LoadScene(7);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void StageSelectToTitle()
     {
         SceneManager.LoadScene(0);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void CustumeToStageSelect()
     {
         SceneManager.LoadScene(1);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
 }
 

@@ -103,7 +103,7 @@ public class StageUIController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     //타이틀로 돌아가기
     public void OnGoToTitle()
