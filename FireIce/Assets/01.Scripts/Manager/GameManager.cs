@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     private StageUIController uIController;
-    private AchievementList AchievementList;
     private int totalDoor;
     private int openDoor;
 

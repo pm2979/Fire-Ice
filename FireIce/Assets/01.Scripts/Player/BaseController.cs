@@ -1,9 +1,4 @@
-using System.Drawing;
-using Unity.Burst.CompilerServices;
-using UnityEditor;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class BaseController : MonoBehaviour
 {
