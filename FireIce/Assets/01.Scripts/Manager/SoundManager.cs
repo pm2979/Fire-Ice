@@ -39,18 +39,7 @@ public class SoundManager : Singleton<SoundManager>
         if (type == SOUNDTYPE.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
         {
             Debug.Log("노래 재생 중");
-            if (soundPlayerDic[type][0].AudioSourceComp.clip.name == name)
-            {
-                Debug.Log("똑같은 BGM");
-                return; //BGM을 다시 요청했을 때 해당 곡으로 바뀌도록 수정
-            }
-
-            foreach (var player in soundPlayerDic[type])
-            {
-                player.AudioSourceComp.Stop();
-                Destroy(player.gameObject);
-            }
-            soundPlayerDic[type].Clear();
+            return;
         }
 
         GameObject go = new GameObject();
