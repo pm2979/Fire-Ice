@@ -2,7 +2,6 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    AchievementConditions AchievementConditions { get; set; }
     public const string fireTag = "Fire Obstacle"; //불 Tag (용암풀)
     public const string iceTag = "Ice Obstacle"; //얼음 Tag (얼음풀)
     public const string poisonTag = "Poison Obstacle"; //독 Tag
@@ -58,7 +57,7 @@ public abstract class Ability : MonoBehaviour
 
     public void GameOver()
     {
-        SoundManager.Instance.PlaySound(SoundType.SFX, "21_orc_damage_3");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, "13_human_jump_land_1");
         GameManager.Instance.GameOverUI();
         //AchievementConditions.deathCount++;
         Debug.Log("게임 오버!");

@@ -1,9 +1,4 @@
-using System.Drawing;
-using Unity.Burst.CompilerServices;
-using UnityEditor;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class BaseController : MonoBehaviour
 {
@@ -14,7 +9,7 @@ public class BaseController : MonoBehaviour
     public KeyCode rightKey = KeyCode.D;
     public KeyCode jumpKey = KeyCode.W;
 
-    public float groundCheckDistance = 0.75f;
+    public float groundCheckDistance = 0.5f;
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
@@ -88,23 +83,12 @@ public class BaseController : MonoBehaviour
 
     private void Slide()
     {
-        Vector2 size = GetComponent<BoxCollider2D>().size;
-
-        RaycastHit2D hit = Physics2D.BoxCast(
-            transform.position,
-            size,
-            transform.eulerAngles.z,
-            Vector2.down,
-            groundCheckDistance,
-            groundLayer
-        );
-
         if (hit.normal == null) return; // 공중에 떠 있는 상태 > 슬라이드 멈춤
 
         // 경사각 계산 (법선 벡터와 Up 벡터의 각도)
         float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-        if (slopeAngle > 20f && slopeAngle < 90)
+        if (slopeAngle > 20f)
         {
             // 경사면을 따라 내려가는 방향(탄젠트) 구하기
             Vector2 slideDir = new Vector2(hit.normal.y, -hit.normal.x);
@@ -114,43 +98,21 @@ public class BaseController : MonoBehaviour
         }
     }
 
-    //private void IsGrounded() // 땅인지 확인
-    //{
-    //    hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-    //    isJump = hit.collider != null ? true : false;
-    //    Debug.DrawRay(transform.position, Vector2.down * groundCheckDistance, Color.red);
-    //}
-
-    //private void IsGrounded()
-    //{
-    //    bool grounded = false;
-
-    //    // 가운데
-    //    if (Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer))
-    //        grounded = true;
-    //    // 왼쪽 아래
-    //    else if (Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, 40) * Vector2.down, groundCheckDistance, groundLayer))
-    //        grounded = true;
-    //    // 오른쪽 아래
-    //    else if (Physics2D.Raycast(transform.position, Quaternion.Euler(0f, 0f, -40) * Vector2.down, groundCheckDistance, groundLayer))
-    //        grounded = true;
-
-    //    isJump = grounded;
-    //}
-
     private void IsGrounded()
     {
         bool grounded = false;
         Vector2 size = GetComponent<BoxCollider2D>().size;
-        // 가운데
-        if (Physics2D.BoxCast(
-            transform.position,
-            size,
-            transform.eulerAngles.z,
-            Vector2.down,
-            groundCheckDistance,
-            groundLayer
-        ))
+
+        hit = Physics2D.BoxCast(
+        transform.position,
+        size,
+        transform.eulerAngles.z,
+        Vector2.down,
+        groundCheckDistance,
+        groundLayer
+    );
+
+        if (hit.collider != null)
          grounded = true;
 
         isJump = grounded;

@@ -1,25 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
-
-
 
 public class AchievementConditions : MonoBehaviour
 {
-    ScoreUI scoreUI;
     public int deathCount = 0;
-    AchievementList achievementList;
-    AchievementUI achievementUI;
-    ScoreManager scoreManager;
 
     private void Start()
     {
-        scoreManager = FindObjectOfType<ScoreManager>();
         deathCount = 0;
-        achievementList = FindObjectOfType<AchievementList>();
     }
 
     public void CheckNoDeathClear() // 업적 클리어 확인
@@ -28,7 +15,7 @@ public class AchievementConditions : MonoBehaviour
         {
             
             deathCount = 0;
-            achievementList.achievements[0].isCompleted = true;
+            AchievementManager.Instance.achievements[0].isCompleted = true;
         }
         AchievementAllClear();
     }
@@ -47,20 +34,20 @@ public class AchievementConditions : MonoBehaviour
     {
         if (grade == GRADE.A)
         {
-            achievementList.achievements[1].isCompleted = true;
+            AchievementManager.Instance.achievements[1].isCompleted = true;
         }
         AchievementAllClear();
     }
 
     public void AchievementAllClear() // 업적 클리어 확인
     {
-        for (int i = 0; i<achievementList.achievements.Count-1; i++)
+        for (int i = 0; i < AchievementManager.Instance.achievements.Count-1; i++)
         {
-            if (!achievementList.achievements[i].isCompleted)
+            if (!AchievementManager.Instance.achievements[i].isCompleted)
             {
                 return;
             }
         }
-        achievementList.achievements[achievementList.achievements.Count - 1].isCompleted = true;
+        AchievementManager.Instance.achievements[AchievementManager.Instance.achievements.Count - 1].isCompleted = true;
     }
 }

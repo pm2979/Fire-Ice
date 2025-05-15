@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     private StageUIController uIController;
-    private AchievementList AchievementList;
     private int totalDoor;
     private int openDoor;
 
@@ -19,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     // 새로운 씬이 로드될 때마다 호출
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        var doors = FindObjectsOfType<FinishStage>();
+        var doors = FindObjectsOfType<ExitDoor>();
         totalDoor = doors.Length;
         openDoor = 0;
         uIController = FindObjectOfType<StageUIController>();
@@ -52,25 +51,29 @@ public class GameManager : Singleton<GameManager>
 
 
     }
-
     public void NotifyDoorOpened()
     {
-        
-        
-        
-        openDoor++;
-        // 모든 문이 열렸다면 한 번만 실행
+        openDoor = Mathf.Min(openDoor + 1, totalDoor);
+        TryCheckAllDoorsOpen();
+    }
+
+    public void NotifyDoorClosed()
+    {
+        openDoor = Mathf.Max(openDoor - 1, 0);
+    }
+
+    private void TryCheckAllDoorsOpen()
+    {
         if (openDoor >= totalDoor)
         {
+            // 모든 문이 열려야 이 부분 한 번 실행
             var achvcond = FindObjectOfType<AchievementConditions>();
             var scoreMg = FindObjectOfType<ScoreManager>();
-            if (scoreMg != null&&achvcond != null)
+            if (scoreMg != null && achvcond != null)
             {
                 scoreMg.Rank();
                 achvcond.CheckNoDeathClear();
             }
-                
-            
         }
     }
 }
