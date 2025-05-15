@@ -10,7 +10,7 @@ public class BtnController : MonoBehaviour
     public void OnStartBtn()
     {
         SceneManager.LoadScene(1);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
 
     public void OnAchievement()
@@ -30,42 +30,47 @@ public class BtnController : MonoBehaviour
     public void OnStage1()
     {
         SceneManager.LoadScene(2);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Dance_(Battle)");
+        SoundManager.Instance.StopSound(SOUNDTYPE.BGM);
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void OnStage2()
     {
         SceneManager.LoadScene(3);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Dance_(Battle)");
+        SoundManager.Instance.StopSound(SOUNDTYPE.BGM);
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void OnStage3()
     {
         SceneManager.LoadScene(4);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Dance_(Battle)");
+        SoundManager.Instance.StopSound(SOUNDTYPE.BGM);
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void OnStage4()
     {
         SceneManager.LoadScene(5);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Dance_(Battle)");
+        SoundManager.Instance.StopSound(SOUNDTYPE.BGM);
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void OnStage5()
     {
         SceneManager.LoadScene(6);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Dance_(Battle)");
+        SoundManager.Instance.StopSound(SOUNDTYPE.BGM);
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void OnCostume()
     {
         SceneManager.LoadScene(7);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void StageSelectToTitle()
     {
         SceneManager.LoadScene(0);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
     public void CustumeToStageSelect()
     {
         SceneManager.LoadScene(1);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
 }
 

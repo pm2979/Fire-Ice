@@ -48,7 +48,7 @@ public class StageUIController : MonoBehaviour
     public void ShowClearUI(RankResult result)
     {
         clearUI.SetActive(true);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, "match");
+        StartCoroutine(PlayMatchSoundRepeated("match", 3, 0.1f));
         gradeImage.sprite = gradeSprites[(int)result.Grade];
         timeCheckIcon.sprite = result.TimeSuccess ? checkSprite : crossSprite;
         coinCheckIcon.sprite = result.CoinSuccess ? checkSprite : crossSprite;
@@ -103,7 +103,6 @@ public class StageUIController : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
     }
     //타이틀로 돌아가기
     public void OnGoToTitle()
@@ -123,6 +122,14 @@ public class StageUIController : MonoBehaviour
     }
     #endregion
 
+    private IEnumerator PlayMatchSoundRepeated(string soundName, int count, float delay)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, soundName);
+            yield return new WaitForSecondsRealtime(delay);
+        }
+    }
 }
 
 

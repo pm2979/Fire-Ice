@@ -21,6 +21,7 @@ public class Coin : MonoBehaviour
             return;
         }
         ScoreManager.AddCoin(scoreConfig.coinType);
+        SoundManager.Instance.PlaySound(SOUNDTYPE.SFX, "match");
         Destroy(gameObject);
     }
 }

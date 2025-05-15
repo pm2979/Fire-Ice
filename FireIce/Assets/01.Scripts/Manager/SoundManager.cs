@@ -21,7 +21,7 @@ public class SoundManager : Singleton<SoundManager>
         base.Awake();
         soundPlayerDic = new Dictionary<SOUNDTYPE, List<SoundPlayer>>();
         //딕셔너리 초기화
-        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "Goblins_Den_(Regular)");
+        SoundManager.Instance.PlaySound(SOUNDTYPE.BGM, "RealCubyTwoMainTheme");
     }
 
     public void SetVolume(SOUNDTYPE type, float volume) //볼륨 조절
@@ -39,18 +39,7 @@ public class SoundManager : Singleton<SoundManager>
         if (type == SOUNDTYPE.BGM && soundPlayerDic.ContainsKey(type) && soundPlayerDic[type].Count >= 1)
         {
             Debug.Log("노래 재생 중");
-            if (soundPlayerDic[type][0].AudioSourceComp.clip.name == name)
-            {
-                Debug.Log("똑같은 BGM");
-                return; //BGM을 다시 요청했을 때 해당 곡으로 바뀌도록 수정
-            }
-
-            foreach (var player in soundPlayerDic[type])
-            {
-                player.AudioSourceComp.Stop();
-                Destroy(player.gameObject);
-            }
-            soundPlayerDic[type].Clear();
+            return;
         }
 
         GameObject go = new GameObject();
@@ -71,6 +60,19 @@ public class SoundManager : Singleton<SoundManager>
         else
         {
             soundPlayerDic.Add(type, new List<SoundPlayer> { sp });
+        }
+    }
+
+    public void StopSound(SOUNDTYPE type)
+    {
+        if (soundPlayerDic.ContainsKey(type))
+        {
+            foreach (SoundPlayer sp in soundPlayerDic[type])
+            {
+                sp.AudioSourceComp.Stop();
+                Destroy(sp.gameObject);
+            }
+            soundPlayerDic[type].Clear();
         }
     }
 }
