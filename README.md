@@ -70,6 +70,7 @@
 ## 🖥️ 사용 툴  
 - **Figma** (구조 설계 · 프레임워크)  
 - **Google Slides** (발표 PPT 준비)
+- **Uinity** (개발 엔진)
 - **GitHub Desktop** (형상 관리)  
 - **Visual Studio** (개발 환경)
 - **Aseprite** (이미지 제작)
