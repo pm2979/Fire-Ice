@@ -62,4 +62,17 @@ public class SoundManager : Singleton<SoundManager>
             soundPlayerDic.Add(type, new List<SoundPlayer> { sp });
         }
     }
+
+    public void StopSound(SOUNDTYPE type)
+    {
+        if (soundPlayerDic.ContainsKey(type))
+        {
+            foreach (SoundPlayer sp in soundPlayerDic[type])
+            {
+                sp.AudioSourceComp.Stop();
+                Destroy(sp.gameObject);
+            }
+            soundPlayerDic[type].Clear();
+        }
+    }
 }
