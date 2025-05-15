@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Map1
   m_EditorClassIdentifier: 
   limitMin: 1
-  linitSec: 20
+  linitSec: 40
