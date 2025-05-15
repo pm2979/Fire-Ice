@@ -9,6 +9,7 @@
 <br><br><br>
   
 --------------------------
+# Function
 
 * 튜토리얼 - 게임 시작 시 기본적인 조작법을 알려줍니다.
 * 고유 능력 - 두 플레이어가 각 능력을 활용해 사물을 얼리거나 녹일 수 있습니다.
@@ -19,7 +20,15 @@
 * 사운드 시스템 - 배경음과 효과음을 조절할 수 있습니다.
 
 --------------------------
+# WireFrame
+<br>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eb9d6e33-b3a2-4d6f-b4d8-8997e7d443ea" width="1000">
+</p>
 
+
+--------------------------
+# Game Play
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e0e2f14b-942e-45cf-808c-4b1ab3f095c3" width="250">
   <img src="https://github.com/user-attachments/assets/4dbf0330-dee0-4c87-af89-f97bc71896ca" width="250">
