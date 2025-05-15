@@ -73,7 +73,6 @@
 - **GitHub Desktop** (형상 관리)  
 - **Visual Studio** (개발 환경)
 - **Aseprite** (이미지 제작)
-* 사용 기술<br>
 
 ---
 
