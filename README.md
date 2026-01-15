@@ -1,5 +1,5 @@
 # CubyTwo
-> 6주차 유니티 2D 프로젝트 
+> 유니티 2D 프로젝트 
 
 ![title](https://github.com/user-attachments/assets/2e5fdb53-e8cf-4a35-926a-eb65d97395bc)
 
